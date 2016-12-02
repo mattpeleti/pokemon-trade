@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux'
+import { bindActionCreators} from 'redux'
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    // INITIAL STATE
+    // ANY BINDINGS
+  }
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        {/* THE ENTIRE APP */}
       </div>
     );
   }
 }
 
-export default App;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({/*SOME ACTION CREATOR*/}, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(App);
