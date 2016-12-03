@@ -13,14 +13,14 @@
 #
 
 class User < ApplicationRecord
-  has_many :trade_posts, :trade_offers
-  has_many :post_pokemons, :trade_posts
-  has_many :offer_pokemons, :trade_offers
+  has_many :trade_posts
+  has_many :trade_offers
+  has_many :post_pokemons, through: :trade_posts
+  has_many :offer_pokemons, through: :trade_offers
 
-
-  validates :username, presence: true, length: {maximum: 20}
-  validates :email, presence: true
-  validates :friendcode, presence: true, length: {is: 12}
-  validates_uniqueness_of :email, :username, :friendcode
+  # validates :username, presence: true, length: {maximum: 20}
+  # validates :email, presence: true
+  # validates :friendcode, presence: true, length: {is: 12}
+  # validates_uniqueness_of :email, :username, :friendcode
   has_secure_password
 end

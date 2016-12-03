@@ -2,17 +2,18 @@ class SessionsController < ApplicationController
   skip_before_action :authenticate_user
 
   def create
-    jwt = Auth.issue(user_params[:user][:id])
-    render json: {jwt: jwt}
-  end
-
-  def destroy
-    #localstorage haha
+    user = User.find_by(username: user_params[:username])
+    if user && user.authenticate(user_params[:password])
+      jwt = Auth.issue({user_id: user.id})
+      render json: {jwt: jwt, userId: user.id}, status: 200
+    else
+      render json: {error: "Invalid Credentials"}, status: 401
+    end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:id)
+    params.require(:auth).permit(:username, :password)
   end
 end

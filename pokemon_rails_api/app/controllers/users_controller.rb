@@ -3,23 +3,19 @@ class UsersController < ApplicationController
 
 
   def create
-    user = User.new(user_params[:user])
-
+    user = User.new(user_params)
     if user.save
-      jwt = Auth.issue(user.id)
-      render json: {jwt: jwt}
+      jwt = Auth.issue({user_id: user.id})
+      render json: {jwt: jwt, userId: user.id}, status: 200
     else
       render json: {error: "Account creation failed."}
     end
   end
 
-
-
-
-private
+  private
 
   def user_params
-    params.require(:user).permit(:email, :username, :friendcode, :password_digest)
+    params.require(:auth).permit(:email, :username, :friendcode, :password)
   end
 
 end
