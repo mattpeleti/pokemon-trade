@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: user_params[:username])
     if user && user.authenticate(user_params[:password])
       jwt = Auth.issue({user_id: user.id})
-      render json: {jwt: jwt, userId: user.id}, status: 200
+      render json: {jwt: jwt, userId: user.id, username: user.username}, status: 200
     else
       render json: {error: "Invalid Credentials"}, status: 401
     end

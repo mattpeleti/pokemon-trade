@@ -12,10 +12,6 @@
 #  gender        :string
 #  held_item     :string
 #  pokeball      :string
-#  move1         :string
-#  move2         :string
-#  move3         :string
-#  move4         :string
 #  nature        :string
 #  hp            :integer
 #  attack        :integer
@@ -31,10 +27,13 @@
 #  iv_speed      :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  post_id       :integer
+#  nature_id     :integer
 #
 
 class PostPokemon < ApplicationRecord
   belongs_to :trade_post
+  belongs_to :nature
   has_many :post_pokemon_moves
   has_many :moves, through: :post_pokemon_moves
 end

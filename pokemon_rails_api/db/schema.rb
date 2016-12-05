@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201200809) do
+ActiveRecord::Schema.define(version: 20161205160208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,10 +89,6 @@ ActiveRecord::Schema.define(version: 20161201200809) do
     t.string   "gender"
     t.string   "held_item"
     t.string   "pokeball"
-    t.string   "move1"
-    t.string   "move2"
-    t.string   "move3"
-    t.string   "move4"
     t.string   "nature"
     t.integer  "hp"
     t.integer  "attack"
@@ -108,6 +104,8 @@ ActiveRecord::Schema.define(version: 20161201200809) do
     t.integer  "iv_speed"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "offer_id"
+    t.integer  "nature_id"
   end
 
   create_table "post_pokemon_moves", force: :cascade do |t|
@@ -127,10 +125,6 @@ ActiveRecord::Schema.define(version: 20161201200809) do
     t.string   "gender"
     t.string   "held_item"
     t.string   "pokeball"
-    t.string   "move1"
-    t.string   "move2"
-    t.string   "move3"
-    t.string   "move4"
     t.string   "nature"
     t.integer  "hp"
     t.integer  "attack"
@@ -146,6 +140,8 @@ ActiveRecord::Schema.define(version: 20161201200809) do
     t.integer  "iv_speed"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "post_id"
+    t.integer  "nature_id"
   end
 
   create_table "requested_pokemons", force: :cascade do |t|
@@ -159,6 +155,8 @@ ActiveRecord::Schema.define(version: 20161201200809) do
     t.string   "nature"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "post_id"
+    t.integer  "nature_id"
   end
 
   create_table "trade_offers", force: :cascade do |t|
@@ -166,6 +164,7 @@ ActiveRecord::Schema.define(version: 20161201200809) do
     t.string   "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "trade_posts", force: :cascade do |t|
@@ -174,6 +173,7 @@ ActiveRecord::Schema.define(version: 20161201200809) do
     t.string   "status"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

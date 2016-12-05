@@ -13,8 +13,11 @@
 #  nature     :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  post_id    :integer
+#  nature_id  :integer
 #
 
 class RequestedPokemon < ApplicationRecord
   belongs_to :trade_post
+  belongs_to :nature
 end
