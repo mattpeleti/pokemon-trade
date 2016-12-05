@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       jwt = Auth.issue({user_id: user.id})
-      render json: {jwt: jwt, userId: user.id}, status: 200
+      render json: {jwt: jwt, userId: user.id, username: user.username}, status: 200
     else
       render json: {error: "Account creation failed."}
     end

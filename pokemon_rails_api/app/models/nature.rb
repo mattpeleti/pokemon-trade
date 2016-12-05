@@ -11,7 +11,7 @@
 #
 
 class Nature < ApplicationRecord
-  belongs_to :offer_pokemon
-  belongs_to :post_pokemon
-  belongs_to :requested_pokemon
+  has_many :offer_pokemons
+  has_many :post_pokemons
+  has_many :requested_pokemons
 end

@@ -2,8 +2,8 @@ import $ from 'jquery'
 import { browserHistory } from 'react-router'
 
 export default function signup(formData) {
-		return function(dispatch) {
-		dispatch({type: 'CREATING_USER'})
+	return function(dispatch) {
+		dispatch({type: 'CREATE_USER'})
 		$.ajax({
 			type: 'POST',
 			url: 'http://localhost:3000/users',
@@ -18,7 +18,9 @@ export default function signup(formData) {
 		}).done((response) => {
 			browserHistory.push('/') // our route we redirect to
 			localStorage.setItem('jwt', response.jwt)
-			dispatch({type: 'LOGIN', payload: {current_user: response.userId}})
+			dispatch({type: 'LOG_IN', payload:
+				{currentUser: {id: response.userId, username: response.username}}
+			})
 		})
 	}
 }
