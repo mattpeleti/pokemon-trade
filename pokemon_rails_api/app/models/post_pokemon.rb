@@ -27,7 +27,7 @@
 #  iv_speed      :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  post_id       :integer
+#  trade_post_id :integer
 #  nature_id     :integer
 #
 

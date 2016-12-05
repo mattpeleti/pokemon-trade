@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   # post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
   resources :trade_posts
+  post '/init_post', to: 'trade_posts#set_id'
+  resources :post_pokemon
 end

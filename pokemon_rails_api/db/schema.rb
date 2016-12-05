@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205160208) do
+ActiveRecord::Schema.define(version: 20161205174513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,9 +102,9 @@ ActiveRecord::Schema.define(version: 20161205160208) do
     t.integer  "iv_sp_attack"
     t.integer  "iv_sp_defense"
     t.integer  "iv_speed"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "offer_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "trade_offer_id"
     t.integer  "nature_id"
   end
 
@@ -140,7 +140,7 @@ ActiveRecord::Schema.define(version: 20161205160208) do
     t.integer  "iv_speed"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.integer  "post_id"
+    t.integer  "trade_post_id"
     t.integer  "nature_id"
   end
 
@@ -153,9 +153,9 @@ ActiveRecord::Schema.define(version: 20161205160208) do
     t.string   "gender"
     t.string   "ability"
     t.string   "nature"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "post_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "trade_post_id"
     t.integer  "nature_id"
   end
 

@@ -6,7 +6,7 @@ class TradePostsController < ApplicationController
   end
 
   def show
-    post = TradePost.find(post_params[:id])
+    post = TradePost.find(post_id_params)
     if post
       render json: {post: post}
     else
@@ -14,12 +14,9 @@ class TradePostsController < ApplicationController
     end
   end
 
-  def create
-    post = TradePost.new(title: post_params[:title], description: post_params[:description])
-    byebug
-    post.user = current_user
-    post.post_pokemon = PostPokemon.create(post_params[:post_pokemon])
-    post.requested_pokemon = RequestedPokemon.create(post_params[:req_pokemon])
+  def create # ACTUALLY UPDATING EMPTY POST
+    post = TradePost.find_by(post_id_params)
+    post.update(post_params)
     if post.save
       render json: {message: "Post saved. Yay!"}
     else
@@ -27,13 +24,24 @@ class TradePostsController < ApplicationController
     end
   end
 
+  def set_id
+    post = TradePost.new
+    post.user = current_user
+    if post.save
+      render json: {id: post.id}
+    else
+      render json: {error: "Post Initialization failed."}
+    end
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:id, :title, :description,
-      post_pokemon: [:natdexnum],
-      req_pokemon: [:natdexnum]
-    )
+    params.require(:post).permit(:title, :description, :post_pokemon_id, :requested_pokemon_id)
+  end
+
+  def post_id_params
+    params.require(:post).permit(:id)
   end
 
 end

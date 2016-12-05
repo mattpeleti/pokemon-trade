@@ -18,7 +18,7 @@ export default function login(formData) {
 			} else {
 				browserHistory.push('/')
 				localStorage.setItem('jwt', response.jwt)
-				dispatch({type: 'LOG_IN', payload:
+				dispatch({type: 'LOGIN', payload:
 					{currentUser: {id: response.userId, username: response.username}}
 				})
 			}
