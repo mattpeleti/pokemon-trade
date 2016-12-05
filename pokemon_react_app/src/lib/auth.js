@@ -19,7 +19,7 @@ export default function auth(ConnectedComponent){
     }
   }
   function mapStateToProps(state){
-    return { currentUser: state.userReducer.currentUser, browserHistory: browserHistory }
+    return { currentUser: state.users.currentUser, browserHistory: browserHistory }
   }
   return connect(mapStateToProps)(AuthorizedComponent)
 }

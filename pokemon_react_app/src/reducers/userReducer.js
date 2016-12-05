@@ -5,13 +5,13 @@ export default function users(state = defaultState, action) {
 	switch(action.type) {
 		case "CREATE_USER":
 			return {...state, 'creatingUser': true}
-		case "LOG_IN":
+		case "LOGIN":
 			return {
 				...state,
 				'creatingUser': false,
 				'currentUser': action.payload.currentUser
 			}
-		case "LOG_OUT":
+		case "LOGOUT":
 			return {...state, 'creatingUser': false, 'currentUser': null}
 		default:
 			return state

@@ -14,4 +14,9 @@
 class TradePost < ApplicationRecord
   has_many :trade_offers
   belongs_to :user
+
+  def initialize
+  	super
+  		self.status = "OPEN"
+  end
 end
