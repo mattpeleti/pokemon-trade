@@ -6,8 +6,9 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import initPost from '../actions/posts/initPost'
 import '../App.css';
+import {Navbar, Nav, NavItem, ButtonGroup, Button} from 'react-bootstrap'
 
-class Navbar extends Component {
+class Navbar2 extends Component {
 
 	handleLogout(event){
     event.preventDefault()
@@ -17,12 +18,20 @@ class Navbar extends Component {
 	render() {
 		return (
 			<div>
-        	<li><Link to={'/'}>Home</Link></li>
-	        <li><Link to={'/login'}>Log In</Link></li>
-	        <li><Link to={'/signup'}>Sign Up</Link></li>
-          <li><a href='' onClick={this.handleLogout.bind(this)}>Logout</a></li>
-          <li><Link to={'/posts/new'} >New Post</Link></li>
-          <br/>
+				<Navbar >
+					<Navbar.Header>
+			      <Navbar.Brand>
+			        <Link to={'/'}>PokeTrade</Link>
+			      </Navbar.Brand>
+			    </Navbar.Header>
+					<Nav>
+						<NavItem eventKey={1}><Link to={'/login'}>Login</Link></NavItem>
+						<NavItem eventKey={2}><Link to={'/signup'}>Sign Up</Link></NavItem>
+						<NavItem eventKey={3}><Link to={'/posts/new'} >New Post</Link></NavItem>
+						<NavItem eventKey={4}><a onClick={this.handleLogout.bind(this)}>Logout</a></NavItem>
+					</Nav>
+				</Navbar>
+        <br/>
 			</div>
 		)
 	}
@@ -32,4 +41,4 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators({ logout, initPost }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(Navbar)
+export default connect(null, mapDispatchToProps)(Navbar2)

@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import signup from '../actions/signup'
 
-
 class Signup extends Component {
 	constructor(props){
 		super(props)

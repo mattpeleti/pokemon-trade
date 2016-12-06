@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import login from '../actions/login'
+import {FormGroup, FormControl} from 'react-bootstrap'
 
 class Login extends Component {
 	constructor(props) {
@@ -26,16 +27,53 @@ class Login extends Component {
 		return (
 			<div>
 				<form onSubmit={this.handleSubmit.bind(this)}>
-					<label> Username </label>
-					<input type="text" placeholder="Username" onChange={this.handleUsernameChange.bind(this)}/>
-					<label> Password </label>
-					<input type="password" placeholder="Password" onChange={this.handlePasswordChange.bind(this)}/>
-					<input type="submit"/>
+					<FormGroup
+						controlId="UserNameInput"
+						>
+						<FormControl
+						type="text"
+						value={this.state.username}
+						placeholder="Username"
+						onChange={this.handleUsernameChange.bind(this)}
+						/>
+					</FormGroup>
+
+					<FormGroup
+	          controlId="PasswordInput"
+	        >
+	          <FormControl
+	            type="password"
+	            value={this.state.password}
+	            placeholder="Password"
+	            onChange={this.handlePasswordChange.bind(this)}
+	          />
+	        </FormGroup>
+
+					<FormGroup
+	          controlId="Submit"
+	        >
+	          <FormControl
+	            type="submit"
+	          />
+	        </FormGroup>
+
+
 				</form>
 			</div>
+
 		)
 	}
 }
+
+
+// <form onSubmit={this.handleSubmit.bind(this)}>
+// 	<label> Username </label>
+// 	<input type="text" placeholder="Username" onChange={this.handleUsernameChange.bind(this)}/>
+// 	<label> Password </label>
+// 	<input type="password" placeholder="Password" onChange={this.handlePasswordChange.bind(this)}/>
+// 	<input type="submit"/>
+// </form>
+// </div>
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({login: login}, dispatch)

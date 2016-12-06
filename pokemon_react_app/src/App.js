@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Link } from 'react-router'
 import { browserHistory } from 'react-router'
-import Navbar from './components/Navbar'
+import Navbar2 from './components/Navbar'
+
 import './App.css';
 
 class App extends Component {
@@ -19,8 +20,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css"/>
+        <Navbar2 />
         {this.welcome()}
-        <Navbar />
         {this.props.children}
       </div>
     );
