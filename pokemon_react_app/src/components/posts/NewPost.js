@@ -3,27 +3,20 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import createPost from '../../actions/posts/createPost'
 import initPost from '../../actions/posts/initPost'
-import NewPostPokemon from './NewPostPokemon'
+import NewPokemon from '../pokemons/NewPokemon'
 import auth from '../../lib/auth'
 import $ from 'jquery'
 
 class NewPost extends Component {
 	constructor(props){
 		super(props)
-		this.state = {id: null, title: "", description: "", postPokemonId: null, reqPokemonId: null, renderPostPokeform: false}
-
+		this.state = {id: null, title: "", description: "", pokemonId: null, reqPokemonId: null}
 	}
 
 	componentWillMount(){
 		this.props.initPost()
 		this.setState({id: this.props.id})
 	}
-
-	// componentDidMount(){
-	// 	if(this.state.id === null){
-	// 		this.props.initPost()
-	// 	}
-	// }
 
 	handleTitleChange(event) {
 		this.setState({title: event.target.value})
@@ -35,18 +28,18 @@ class NewPost extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault()
-		console.log(this.props.id)
-			// () => {
-			// 	$('.newPostPokemon').show(500)
-			// }
-		this.setState({renderPostPokeform: true})
+		// console.log(this.props.id)
+		// 	// () => {
+		// 	// 	$('.newPostPokemon').show(500)
+		// 	// }
+		// this.setState({renderPostPokeform: true})
 	}
 
-	renderPostPokemonForm(){
-		if(this.state.renderPostPokeform){
-			return <NewPostPokemon />
-		}
-	}
+	// renderPokemonForm(){
+	// 	if(this.state.renderPostPokeform){
+	// 		return <NewPostPokemon />
+	// 	}
+	// }
 
 	render() {
 		return (
@@ -58,7 +51,7 @@ class NewPost extends Component {
 					<input type="text" placeholder="Description" onChange={this.handleDescriptionChange.bind(this)}/>
 					<input type="submit"/>
 				</form>
-				{this.renderPostPokemonForm()}
+				{/* this.renderPokemonForm() */}
 			</div>
 		)
 	}

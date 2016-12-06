@@ -14,9 +14,8 @@ class TradePostsController < ApplicationController
     end
   end
 
-  def create # ACTUALLY UPDATING EMPTY POST
-    post = TradePost.find_by(post_id_params)
-    post.update(post_params)
+  def create
+    post = TradePost.new(post_params)
     if post.save
       render json: {message: "Post saved. Yay!"}
     else
@@ -24,20 +23,10 @@ class TradePostsController < ApplicationController
     end
   end
 
-  def set_id
-    post = TradePost.new
-    post.user = current_user
-    if post.save
-      render json: {id: post.id}
-    else
-      render json: {error: "Post Initialization failed."}
-    end
-  end
-
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :post_pokemon_id, :requested_pokemon_id)
+    params.require(:post).permit(:title, :description, :pokemon_id, :requested_pokemon_id)
   end
 
   def post_id_params

@@ -1,22 +1,21 @@
 import $ from 'jquery'
 import { browserHistory } from 'react-router'
 
-export default function createPostPokemon(formData) {
+export default function createPokemon(formData) {
 	return function(dispatch) {
 		$.ajax({
 			type: 'POST',
-			url: 'http://localhost:3000/post_pokemon',
-			data: JSON.stringify({post_pokemon: {
+			url: 'http://localhost:3000/pokemon',
+			data: JSON.stringify({pokemon: {
 				natdexnum: formData.natdexnum,
 				nickname: formData.nickname,
-				level: formData.level,
-				trade_post_id: formData.trade_post_id
+				level: formData.level
 			}}),
 			headers: {authorization: localStorage.getItem('jwt')},
 			contentType: 'application/json; charset=utf-8',
 			datatype: 'json'
 		}).done((response) => {
-			dispatch({type: 'CREATE_POST_POKEMON', payload: response.post})
+			dispatch({type: 'CREATE_POKEMON', payload: response.post})
 		})
 	}
 }

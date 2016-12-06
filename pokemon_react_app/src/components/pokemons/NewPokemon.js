@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import createPostPokemon from '../../actions/posts/createPostPokemon'
+import createPokemon from '../../actions/pokemons/createPokemon'
 import auth from '../../lib/auth'
 
-class CreatePostPokemon extends Component {
+class NewPokemon extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {natdexnum: null, nickname: "", level: null, trade_post_id: props.trade_post_id}
@@ -25,13 +25,13 @@ class CreatePostPokemon extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault()
-		this.props.createPostPokemon(this.state)
+		this.props.createPokemon(this.state)
 	}
 
 	render() {
 		return(
-			<div className="newPostPokemon">
-				<p>Create Post Pokemon</p>
+			<div className="newPokemon">
+				<p>Create Pokemon</p>
 				<form onSubmit={this.handleSubmit.bind(this)}>
 					<label>Enter a national dex number(1-12)</label>
 					<input type="integer" placeholder="#" onChange={this.handleNatDexNumChange.bind(this)}/> {/* event.target.value will be the natdexnum */}
@@ -45,7 +45,7 @@ class CreatePostPokemon extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({createPostPokemon}, dispatch)
+	return bindActionCreators({createPokemon}, dispatch)
 }
 
 function mapStateToProps(state) {
@@ -53,4 +53,4 @@ function mapStateToProps(state) {
 
 }
 
-export default auth(connect(mapStateToProps, mapDispatchToProps)(CreatePostPokemon))
+export default auth(connect(mapStateToProps, mapDispatchToProps)(NewPokemon))

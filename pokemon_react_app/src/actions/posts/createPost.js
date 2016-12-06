@@ -7,9 +7,9 @@ export default function createPost(formData) {
 			type: 'POST',
 			url: 'http://localhost:3000/trade_posts',
 			data: JSON.stringify({post: {
-				post_pokemon: formData.postPokemon,
-				req_pokemon: formData.reqPokemon,
-				title: formData.title
+				pokemon_id: formData.pokemonId, // Drop down input of all the users pokemon with pokemon id as it's value
+				title: formData.title,
+				description: formData.description
 			}}),
 			headers: {authorization: localStorage.getItem('jwt')},
 			contentType: 'application/json; charset=utf-8',
