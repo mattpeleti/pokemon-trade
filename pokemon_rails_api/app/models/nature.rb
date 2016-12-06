@@ -11,7 +11,4 @@
 #
 
 class Nature < ApplicationRecord
-  has_many :offer_pokemons
-  has_many :post_pokemons
-  has_many :requested_pokemons
 end

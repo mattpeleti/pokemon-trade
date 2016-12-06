@@ -13,10 +13,10 @@
 #
 
 class User < ApplicationRecord
-  has_many :trade_posts
-  has_many :trade_offers
-  has_many :post_pokemons, through: :trade_posts
-  has_many :offer_pokemons, through: :trade_offers
+  has_many :pokemons
+  has_many :trade_posts, through: :pokemons
+	has_many :trade_offers, through: :pokemons
+	has_many :requested_pokemons, through: :trade_posts
 
   # validates :username, presence: true, length: {maximum: 20}
   # validates :email, presence: true

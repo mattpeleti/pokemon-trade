@@ -10,6 +10,4 @@
 #
 
 class Ability < ApplicationRecord
-  has_many :base_pokemon_abilities
-  has_many :base_pokemons, through: :base_pokemon_abilities
 end

@@ -8,12 +8,6 @@
 #  sprite       :string
 #  shiny_sprite :string
 #  form         :string
-#  hp           :integer
-#  attack       :integer
-#  defense      :integer
-#  sp_attack    :integer
-#  sp_defense   :integer
-#  speed        :integer
 #  genders      :string
 #  type1        :string
 #  type2        :string
@@ -26,4 +20,6 @@ class BasePokemon < ApplicationRecord
   has_many :moves, through: :base_pokemon_moves
   has_many :base_pokemon_abilities
   has_many :abilities, through: :base_pokemon_abilities
+  has_many :pokemon
+  has_many :requested_pokemon
 end

@@ -13,6 +13,4 @@ class BasePokemonMove < ApplicationRecord
   belongs_to :base_pokemon
   belongs_to :move
 
-
-
 end

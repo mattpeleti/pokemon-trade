@@ -10,7 +10,7 @@
 
 #TESTPOKES#
 
-p1 = BasePokemon.create({natdexnum: 1, species: "Bulbasaur", form: "standard", genders: "B", type1: "grass", type2: "poison", sprite: "./public/sprites/001.png", shiny_sprite: "./public/shiny_sprites/001.png"}})
+p1 = BasePokemon.create({natdexnum: 1, species: "Bulbasaur", form: "standard", genders: "B", type1: "grass", type2: "poison", sprite: "./public/sprites/001.png", shiny_sprite: "./public/shiny_sprites/001.png"})
 
 p2 = BasePokemon.create({natdexnum: 2, species: "Ivysaur", form: "standard", genders: "B", type1: "grass", type2: "poison", sprite: "./public/sprites/002.png", shiny_sprite: "./public/shiny_sprites/002.png"})
 

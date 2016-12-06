@@ -34,7 +34,7 @@ class CreatePostPokemon extends Component {
 				<p>Create Post Pokemon</p>
 				<form onSubmit={this.handleSubmit.bind(this)}>
 					<label>Enter a national dex number(1-12)</label>
-					<input type="integer" placeholder="1" onChange={this.handleNatDexNumChange.bind(this)}/> {/* event.target.value will be the natdexnum */}
+					<input type="integer" placeholder="#" onChange={this.handleNatDexNumChange.bind(this)}/> {/* event.target.value will be the natdexnum */}
 					<input type="text" placeholder="Nickname" onChange={this.handleNicknameChange.bind(this)}/>
 					<input type="intger" placeholder="Level" onChange={this.handleLevelChange.bind(this)}/>
 					<input type="submit" />

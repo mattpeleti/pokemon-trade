@@ -8,12 +8,12 @@
 #  status      :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  user_id     :integer
+#  pokemon_id  :integer
 #
 
 class TradePost < ApplicationRecord
   has_many :trade_offers
-  belongs_to :user
+  belongs_to :pokemon
 
   def initialize
   	super
