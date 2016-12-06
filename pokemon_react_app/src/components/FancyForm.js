@@ -58,7 +58,7 @@ class FancyForm extends Component {
 
   render(){
     return(
-      <form onSubmit={this.handleSubmit.bind(this)}>
+      <form onSubmit={this.handleSubmit.bind(this)} >
         <FormGroup
           controlId="UserNameInput"
           validationState={this.getValidationForUsername()}
@@ -69,7 +69,7 @@ class FancyForm extends Component {
           placeholder="Username"
           onChange={this.handleUsernameChange.bind(this)}
           />
-        </FormGroup>
+       </FormGroup>
 
         <FormGroup
           controlId="EmailInput"

@@ -22,8 +22,8 @@ class App extends Component {
       <div className="App">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css"/>
-        {this.welcome()}
         <Navbar2 />
+        {this.welcome()}
         {this.props.children}
       </div>
     );

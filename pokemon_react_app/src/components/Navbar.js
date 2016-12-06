@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import initPost from '../actions/posts/initPost'
 import '../App.css';
-import {Navbar, Nav, NavItem} from 'react-bootstrap'
+import {Navbar, Nav, NavItem, ButtonGroup, Button} from 'react-bootstrap'
 
 class Navbar2 extends Component {
 
@@ -25,7 +25,7 @@ class Navbar2 extends Component {
 			      </Navbar.Brand>
 			    </Navbar.Header>
 					<Nav>
-						<NavItem eventKey={1}><Link to={'/login'}>Log In</Link></NavItem>
+						<NavItem eventKey={1}><Link to={'/login'}>Login</Link></NavItem>
 						<NavItem eventKey={2}><Link to={'/signup'}>Sign Up</Link></NavItem>
 						<NavItem eventKey={3}><Link to={'/posts/new'} >New Post</Link></NavItem>
 						<NavItem eventKey={4}><a onClick={this.handleLogout.bind(this)}>Logout</a></NavItem>
