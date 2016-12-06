@@ -58,7 +58,7 @@ class Signup extends Component {
 
   render(){
     return(
-      <form onSubmit={this.handleSubmit.bind(this)} >
+      <form onSubmit={this.handleSubmit.bind(this)} className="UserForm" >
         <FormGroup
           controlId="UserNameInput"
           validationState={this.getValidationForUsername()}
@@ -68,6 +68,7 @@ class Signup extends Component {
           value={this.state.username}
           placeholder="Username"
           onChange={this.handleUsernameChange.bind(this)}
+          className = "UsernameInput"
           />
        </FormGroup>
 
@@ -110,9 +111,11 @@ class Signup extends Component {
         </FormGroup>
 
         <FormGroup
+          className="SignSub"
           controlId="Submit"
         >
           <FormControl
+          className="SignSub"
             type="submit"
           />
         </FormGroup>

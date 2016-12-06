@@ -22,3 +22,37 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.UserForm {
+  width: 33%;
+  display: inline-block;
+  text-align: center;
+}
+
+.LoginForm {
+  width: 33%;
+  display: inline-block;
+  text-align: center;
+}
+
+.SignSub {
+  -webkit-transition-duration: 1.0s; /* Safari */
+    transition-duration: 1.0s;
+}
+
+.SignSub:hover {
+  background-color: lightgreen; /* Green */
+  color: white;
+}
+
+
+
+.LogSub {
+  -webkit-transition-duration: 1.0s; /* Safari */
+    transition-duration: 1.0s;
+}
+
+.LogSub:hover {
+  background-color: lightgreen; /* Green */
+  color: white;
+}

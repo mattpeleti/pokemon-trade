@@ -20,8 +20,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css"/>
         <Navbar2 />
         {this.welcome()}
         {this.props.children}

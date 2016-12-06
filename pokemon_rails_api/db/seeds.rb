@@ -1,4 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
+move_type# This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
@@ -36,25 +36,25 @@ p12 = BasePokemon.create({natdexnum: 12, species: "Butterfree", form: "standard"
 
 #TESTMOVES#
 
-tackle = Move.create({name: "Tackle", pp: 35, type: "Normal", category: "Physical"})
+tackle = Move.create({name: "Tackle", pp: 35, move_type: "Normal", category: "Physical"})
 
-growl = Move.create({name: "Growl", pp: 40, type: "Normal", category: "Status"})
+growl = Move.create({name: "Growl", pp: 40, move_type: "Normal", category: "Status"})
 
-double_team = Move.create({name: "Double Team", pp: 15, type: "Normal", category: "Status"})
+double_team = Move.create({name: "Double Team", pp: 15, move_type: "Normal", category: "Status"})
 
-harden = Move.create({name: "Harden", pp: 30, type: "Normal", category: "Status"})
+harden = Move.create({name: "Harden", pp: 30, move_type: "Normal", category: "Status"})
 
-protect = Move.create({name: "Protect", pp: 10, type: "Normal", category: "Status"})
+protect = Move.create({name: "Protect", pp: 10, move_type: "Normal", category: "Status"})
 
-toxic = Move.create({name: "Toxic", pp: 10, type: "Poison", category: "Status"})
+toxic = Move.create({name: "Toxic", pp: 10, move_type: "Poison", category: "Status"})
 
-razor_leaf = Move.create({name: "Tackle", pp: 25, type: "Grass", category: "Physical"})
+razor_leaf = Move.create({name: "Tackle", pp: 25, move_type: "Grass", category: "Physical"})
 
-water_gun = Move.create({name: "Water Gun", pp: 25, type: "Water", category: "Special"})
+water_gun = Move.create({name: "Water Gun", pp: 25, move_type: "Water", category: "Special"})
 
-ember = Move.create({name: "Ember", pp: 25, type: "Fire", category: "Special"})
+ember = Move.create({name: "Ember", pp: 25, move_type: "Fire", category: "Special"})
 
-bug_bite = Move.create({name: "Bug Bite", pp: 20, type: "Bug", category: "Physical"})
+bug_bite = Move.create({name: "Bug Bite", pp: 20, move_type: "Bug", category: "Physical"})
 
 
 

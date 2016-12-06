@@ -26,7 +26,7 @@ class Login extends Component {
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.handleSubmit.bind(this)}>
+				<form onSubmit={this.handleSubmit.bind(this)} className="LoginForm">
 					<FormGroup
 						controlId="UserNameInput"
 						>
@@ -53,6 +53,7 @@ class Login extends Component {
 	          controlId="Submit"
 	        >
 	          <FormControl
+							className="LogSub"
 	            type="submit"
 	          />
 	        </FormGroup>
