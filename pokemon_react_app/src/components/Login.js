@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import login from '../actions/login'
-
 class Login extends Component {
 	constructor(props) {
 		super(props)
