@@ -28,6 +28,10 @@ class NewPokemon extends Component {
 		this.props.createPokemon(this.state)
 	}
 
+	listNatures(){
+		return
+	}
+
 	render() {
 		return(
 			<div className="newPokemon">
@@ -37,6 +41,8 @@ class NewPokemon extends Component {
 					<input type="integer" placeholder="#" onChange={this.handleNatDexNumChange.bind(this)}/> {/* event.target.value will be the natdexnum */}
 					<input type="text" placeholder="Nickname" onChange={this.handleNicknameChange.bind(this)}/>
 					<input type="intger" placeholder="Level" onChange={this.handleLevelChange.bind(this)}/>
+					<label></label>
+					<select>
 					<input type="submit" />
 				</form>
 			</div>

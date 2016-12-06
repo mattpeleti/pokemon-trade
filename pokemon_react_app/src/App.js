@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { Link } from 'react-router'
 import { browserHistory } from 'react-router'
 import Navbar2 from './components/Navbar'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import './App.css';
 
@@ -20,9 +21,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar2 />
-        {this.welcome()}
-        {this.props.children}
+          <Navbar2 />
+          {this.welcome()}
+          {this.props.children}
       </div>
     );
   }

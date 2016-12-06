@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import createPost from '../../actions/posts/createPost'
-import initPost from '../../actions/posts/initPost'
+// import initPost from '../../actions/posts/initPost'
 import NewPokemon from '../pokemons/NewPokemon'
 import auth from '../../lib/auth'
 import $ from 'jquery'
@@ -13,10 +13,10 @@ class NewPost extends Component {
 		this.state = {id: null, title: "", description: "", pokemonId: null, reqPokemonId: null}
 	}
 
-	componentWillMount(){
-		this.props.initPost()
-		this.setState({id: this.props.id})
-	}
+	// componentWillMount(){
+	// 	this.props.initPost()
+	// 	this.setState({id: this.props.id})
+	// }
 
 	handleTitleChange(event) {
 		this.setState({title: event.target.value})
@@ -58,7 +58,7 @@ class NewPost extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({createPost, initPost}, dispatch)
+	return bindActionCreators({createPost}, dispatch)
 }
 
 function mapStateToProps(state) {

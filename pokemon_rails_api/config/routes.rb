@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :show, :edit]
   post '/login', to: 'sessions#create'
+  get '/natures', to: 'data#get_natures'
   resources :trade_posts
+  # post '/init', to: ''
   resources :pokemon
 end
