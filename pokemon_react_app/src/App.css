@@ -37,11 +37,31 @@
 
 .SignSub {
   -webkit-transition-duration: 1.0s; /* Safari */
-    transition-duration: 1.0s;
+    transition-duration: .5s;
 }
 
 .SignSub:hover {
   background-color: lightgreen; /* Green */
+  color: white;
+}
+
+.EditSub {
+  -webkit-transition-duration: 1.0s; /* Safari */
+    transition-duration: .5s;
+}
+
+.EditSub:hover {
+  background-color: blue; /* Green */
+  color: white;
+}
+
+.DeleteButton {
+  -webkit-transition-duration: 1.0s; /* Safari */
+    transition-duration: .5s;
+}
+
+.DeleteButton:hover {
+  background-color: red; /* Green */
   color: white;
 }
 

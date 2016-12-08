@@ -3,6 +3,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import login from '../actions/login'
 import {FormGroup, FormControl} from 'react-bootstrap'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
 
 class Login extends Component {
 	constructor(props) {
@@ -26,40 +28,21 @@ class Login extends Component {
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.handleSubmit.bind(this)} className="LoginForm">
-					<FormGroup
-						controlId="UserNameInput"
-						>
-						<FormControl
-						type="text"
-						value={this.state.username}
-						placeholder="Username"
-						onChange={this.handleUsernameChange.bind(this)}
-						/>
-					</FormGroup>
+				<ReactCSSTransitionGroup transitionName="Login-Signup" transitionAppear={true} transitionAppearTimeout={300} transitionEnter={false} transitionLeave={false}>
+					<form onSubmit={this.handleSubmit.bind(this)} className="LoginForm">
+						<FormGroup controlId="UserNameInput">
+							<FormControl type="text" value={this.state.username} placeholder="Username" onChange={this.handleUsernameChange.bind(this)}/>
+						</FormGroup>
 
-					<FormGroup
-	          controlId="PasswordInput"
-	        >
-	          <FormControl
-	            type="password"
-	            value={this.state.password}
-	            placeholder="Password"
-	            onChange={this.handlePasswordChange.bind(this)}
-	          />
-	        </FormGroup>
+						<FormGroup controlId="PasswordInput">
+							<FormControl type="password" value={this.state.password} placeholder="Password" onChange={this.handlePasswordChange.bind(this)} />
+						</FormGroup>
 
-					<FormGroup
-	          controlId="Submit"
-	        >
-	          <FormControl
-							className="LogSub"
-	            type="submit"
-	          />
-	        </FormGroup>
-
-
-				</form>
+						<FormGroup controlId="Submit">
+							<FormControl className="LogSub" type="submit"/>
+						</FormGroup>
+					</form>
+				</ReactCSSTransitionGroup>
 			</div>
 
 		)
