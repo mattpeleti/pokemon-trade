@@ -15,6 +15,7 @@ class NewPokemon extends Component {
 		this.state = {natdexnum: null, nickname: "", level: null, trade_post_id: props.trade_post_id, nature: 1, ability: 1, shiny: false}
 	}
 
+
 	handleNatDexNumChange(event) {
 		let natdexnum = event.target.value
 		if (natdexnum){
@@ -77,10 +78,6 @@ class NewPokemon extends Component {
 				<form onSubmit={this.handleSubmit.bind(this)}>
 					<label>Pokedex Number(1-12): </label>
 					<input type="integer" placeholder="#" onChange={this.handleNatDexNumChange.bind(this)}/>
-					{/* this can also be used for the drop down */}
-					{/* <select onChange={this.handleBasePokemonChange.bind(this)}>
-						{this.listPokemons()}
-					</select> */}
 					<br />
 					<label>Nickname: </label>
 					<input type="text" placeholder="Nickname" onChange={this.handleNicknameChange.bind(this)}/>

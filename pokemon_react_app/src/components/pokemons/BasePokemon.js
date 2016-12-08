@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import auth from '../../lib/auth'
+import getUserInfo from '../../actions/getUserInfo'
+
 
 
 class BasePokemon extends Component {
@@ -40,10 +42,7 @@ class BasePokemon extends Component {
 					{this.renderSprite()}
 					<br />
 					{this.renderPokemonName()}
-					{/* <p>#{this.props.natdexnum} {this.props.species}</p> */}
-					{/* <p>#{this.props.natdexnum}</p> */}
 					{this.renderTypes()}<br />
-					{/* <p>{this.props.type1} / {this.props.type2}</p> */}
 				</div>
 		)
 	}
