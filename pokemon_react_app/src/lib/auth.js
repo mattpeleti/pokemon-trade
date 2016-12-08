@@ -5,12 +5,12 @@ import { connect } from 'react-redux'
 export default function auth(ConnectedComponent){
   class AuthorizedComponent extends Component {
     componentWillMount(){
-      if(!this.props.currentUser){
+      if(!this.props.currentUser && !localStorage.getItem('jwt')){
         browserHistory.push('/login')
       }
     }
     componentWillReceiveProps(){
-      if(!this.props.currentUser){
+      if(!this.props.currentUser && !localStorage.getItem('jwt')){
         browserHistory.push('/login')
       }
     }

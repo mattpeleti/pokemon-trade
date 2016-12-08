@@ -13,24 +13,13 @@
 #  pokeball        :string
 #
 
-#  id            :integer          not null, primary key
-#  nickname      :string
-#  level         :integer
-#  shiny         :boolean
-#  gender        :string
-#  held_item     :string
-#  pokeball      :string
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  user_id       :integer
-#  base_pokemon_id
-
 class Pokemon < ApplicationRecord
   belongs_to :user
   belongs_to :base_pokemon
   has_one :pokemon_nature
   has_one :nature, through: :pokemon_nature
   has_one :pokemon_ability
+  has_one :ability, through: :pokemon_ability
   has_one :iv
   has_one :stat
   has_many :trade_posts

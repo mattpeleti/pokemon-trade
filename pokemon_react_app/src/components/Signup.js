@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import {FormGroup, FormControl, HelpBlock} from 'react-bootstrap'
+import React, { Component } from 'react'
+import { FormGroup, FormControl, HelpBlock } from 'react-bootstrap'
 import signup from '../actions/signup'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'

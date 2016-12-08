@@ -18,7 +18,7 @@ export default function signup(formData) {
 		}).done((response) => {
 			browserHistory.push('/') // our route we redirect to
 			localStorage.setItem('jwt', response.jwt)
-			dispatch({type: 'LOG_IN', payload:
+			dispatch({type: 'STORE_USER_INFO', payload:
 				{currentUser: {id: response.userId, username: response.username}}
 			})
 		})

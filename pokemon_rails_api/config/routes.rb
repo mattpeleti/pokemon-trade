@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :show, :edit]
   post '/login', to: 'sessions#create'
   resources :trade_posts
-  resources :pokemon
+  resources :natures, only: [:index]
+  get '/abilities/:base_pokemon_id', to: 'abilities#show'
+  # post '/init', to: ''
+  resources :pokemons
+  get '/base_pokemons/:natdexnum', to: 'base_pokemons#show'
 end
