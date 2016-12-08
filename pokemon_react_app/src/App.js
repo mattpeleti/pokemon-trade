@@ -25,9 +25,9 @@ class App extends Component {
 
   welcome(){
     if(this.props.currentUser && !this.props.children) {
-      return <h3>Welcome, {this.props.currentUser.username}!</h3>
+      return <h2>Welcome, {this.props.currentUser.username}!</h2>
     } else if(!this.props.currentUser && !this.props.children) {
-      return <h3>Welcome!</h3>
+      return <h2>Welcome!</h2>
     }
   }
 

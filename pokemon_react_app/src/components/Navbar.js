@@ -9,11 +9,35 @@ import {Navbar, Nav, NavItem} from 'react-bootstrap'
 
 class Navbar2 extends Component {
 
-
 	handleLogout(event){
     event.preventDefault()
     this.props.logout()
   }
+
+  renderProfileLink() {
+  	if(this.props.currentUser) {
+	  	return this.props.currentUser.id
+  	} else {
+	  	return "whoops"
+  	}
+  }
+
+	handleLoginLogout(){
+		if(this.props.currentUser){
+			return <Nav>
+				<NavItem className="nav-item" eventKey={2}><Link className="nav-item-text" to={'/'} onClick={this.handleLogout.bind(this)}>Logout</Link></NavItem>
+				<NavItem className="nav-item" eventKey={4}><Link className="nav-item-text" to={'/posts/new'} >New Post</Link></NavItem>
+				<NavItem className="nav-item" eventKey={5}><Link className="nav-item-text" to={'/pokemon/new'} >Create Pokemon</Link></NavItem>
+				<NavItem className="nav-item" eventKey={5}><Link className="nav-item-text" to={`/users/${this.renderProfileLink()}`} >Profile</Link></NavItem>
+				{/* NEW NAV ITEMS HAVE TO GO HERE  */}
+			</Nav>
+		}else{
+			return <Nav>
+				<NavItem className="nav-item" eventKey={1}><Link className="nav-item-text" to={'/login'}>Login</Link></NavItem>
+				<NavItem className="nav-item" eventKey={3}><Link className="nav-item-text" to={'/signup'}>Sign Up</Link></NavItem>
+			</Nav>
+		}
+	}
 
   userRoute(){
   	if(this.props.currentUser){
@@ -24,21 +48,15 @@ class Navbar2 extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="navbar-styling">
 				<Navbar >
 					<Navbar.Header>
-			      <Navbar.Brand>
+			      <Navbar.Brand className="navbar-brand-css">
 			        <Link to={'/'}>PokeTrade</Link>
 			      </Navbar.Brand>
 			    </Navbar.Header>
 					<Nav>
-						<NavItem eventKey={1}><Link to={'/login'}>Login</Link></NavItem>
-						<NavItem eventKey={2}><Link to={'/'} onClick={this.handleLogout.bind(this)}>Logout</Link></NavItem>
-						<NavItem eventKey={3}><Link to={'/signup'}>Sign Up</Link></NavItem>
-						<NavItem eventKey={4}><Link to={'/posts/new'} >New Post</Link></NavItem>
-						<NavItem eventKey={5}><Link to={'/pokemon/new'} >Create Pokemon</Link></NavItem>
-						<NavItem eventKey={6}><Link to={`/users/${this.userRoute()}`} >Profile</Link></NavItem>
-					{/*${this.props.currentUser}*/}
+						{this.handleLoginLogout()}
 					</Nav>
 				</Navbar>
 			</div>
