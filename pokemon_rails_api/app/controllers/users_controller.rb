@@ -16,14 +16,28 @@ class UsersController < ApplicationController
     end
   end
 
-  # def edit
-  #   current_user.update(user_params)
-  # end
+  def edit
+    user = current_user
+    if user.update(edit_params)
+      render json: {userId: user.id, username: user.username, email: user.email, friendcode: user.friendcode}
+    else
+      render json: {message: "Account edit failed"}
+    end
+  end
+
+  def destroy
+    User.destroy(current_user)
+    render json: {message: "Account deleted"}
+  end
 
   private
 
   def auth_params
     params.require(:auth).permit(:email, :username, :friendcode, :password)
+  end
+
+  def edit_params
+    params.require(:user).permit(:email, :friendcode, :password)
   end
 
   # def user_params

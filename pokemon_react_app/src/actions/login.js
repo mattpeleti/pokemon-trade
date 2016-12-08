@@ -19,7 +19,7 @@ export default function login(formData) {
 				browserHistory.push('/')
 				localStorage.setItem('jwt', response.jwt)
 				dispatch({type: 'STORE_USER_INFO', payload:
-					{currentUser: {id: response.userId, username: response.username}}
+					{currentUser: {id: response.userId, username: response.username, email: response.email, friendcode: response.friendcode}}
 				})
 			}
 		})
