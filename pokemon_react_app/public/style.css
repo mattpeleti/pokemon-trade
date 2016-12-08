@@ -1,17 +1,81 @@
-.carousel-enter {
-  opacity: 0.01;
+
+.nav-item {
+  opacity: 1;
 }
 
-.carousel-enter.basePokeSprite-enter-active {
+.nav-item:hover {
+  background-color: #B6C3D2;
+  color: #FFF;
+}
+
+.nav-item-text {
+  opacity: 1;
+}
+
+.nav-item-text:hover {
+  color: #FFF;
+}
+
+
+body {
+  background: url(/alola_region.jpg) no-repeat center center fixed;
+  background-size: cover;
+  background-repeat: no-repeat;;
+  background-position: center;
+  color: #FFF;
+}
+
+
+.App h2 {
+  color: #fff;
+
+}
+
+.BasePokeCard p {
+  color: #fff;
+}
+
+.PokeForm label {
+  color: #fff;
+}
+.newPokemon {
+  color: #FFF;
+}
+
+
+/* ReactCSSTransitionGroup Animations */
+
+.Login-Signup-appear {
+  opacity: 0;
+}
+
+.Login-Signup-appear-active {
   opacity: 1;
   transition: opacity 300ms ease-in;
 }
 
-.carousel-leave {
-  opacity: 1;
+.Base-Pokemon-Card-enter {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(100%, 0, 0);
 }
 
-.carousel-leave.basePokeSprite-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in all;
+.Base-Pokemon-Card-enter-active {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0, 0, 0);
+  transition: all ease-out 300ms;
+}
+
+.Base-Pokemon-Card-leave {
+  transform: translate3d(0, 0, 0);
+}
+
+.Base-Pokemon-Card-leave-active {
+  transform: translate3d(-100%, 0, 0);
+  transition: all ease-out 300ms;
 }

@@ -3,6 +3,8 @@ import { FormGroup, FormControl, HelpBlock } from 'react-bootstrap'
 import signup from '../actions/signup'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
 
 
 class Signup extends Component {
@@ -58,68 +60,32 @@ class Signup extends Component {
 
   render(){
     return(
-      <form onSubmit={this.handleSubmit.bind(this)} className="UserForm" >
-        <FormGroup
-          controlId="UserNameInput"
-          validationState={this.getValidationForUsername()}
-          >
-          <FormControl
-          type="text"
-          value={this.state.username}
-          placeholder="Username"
-          onChange={this.handleUsernameChange.bind(this)}
-          className = "UsernameInput"
-          />
-       </FormGroup>
+      <ReactCSSTransitionGroup transitionName="Login-Signup" transitionAppear={true} transitionAppearTimeout={300} transitionEnter={false} transitionLeave={false}>
+        <form onSubmit={this.handleSubmit.bind(this)} className="UserForm" >
+          <FormGroup controlId="UserNameInput" validationState={this.getValidationForUsername()}>
+            <FormControl type="text" value={this.state.username} placeholder="Username" onChange={this.handleUsernameChange.bind(this)} className = "UsernameInput"/>
+          </FormGroup>
 
-        <FormGroup
-          controlId="EmailInput"
-          validationState={this.getValidationForEmail()}
-        >
-          <FormControl
-            type="text"
-            value={this.state.email}
-            placeholder="Email"
-            onChange={this.handleEmailChange.bind(this)}
-          />
-        </FormGroup>
+          <FormGroup controlId="EmailInput" validationState={this.getValidationForEmail()}>
+            <FormControl type="text" value={this.state.email} placeholder="Email" onChange={this.handleEmailChange.bind(this)}/>
+          </FormGroup>
 
-        <FormGroup
-          controlId="FriendCodeInput"
-          validationState={this.getValidationForFriendcode()}
-        >
-          <FormControl
-            type="text"
-            value={this.state.friendcode}
-            placeholder="Friendcode"
-            onChange={this.handleFriendcodeChange.bind(this)}
-          />
-          <FormControl.Feedback />
-          <HelpBlock>Friendcode must be 12 characters long.</HelpBlock>
-        </FormGroup>
+          <FormGroup controlId="FriendCodeInput" validationState={this.getValidationForFriendcode()}>
+            <FormControl type="text" value={this.state.friendcode} placeholder="Friendcode" onChange={this.handleFriendcodeChange.bind(this)}/>
+            <FormControl.Feedback />
+            <HelpBlock>Friendcode must be 12 characters long.</HelpBlock>
+          </FormGroup>
 
-        <FormGroup
-          controlId="PasswordInput"
-          validationState={this.getValidationForPassword()}
-        >
-          <FormControl
-            type="password"
-            value={this.state.password}
-            placeholder="Password"
-            onChange={this.handlePasswordChange.bind(this)}
-          />
-        </FormGroup>
+          <FormGroup controlId="PasswordInput" validationState={this.getValidationForPassword()}>
+            <FormControl type="password" value={this.state.password} placeholder="Password" onChange={this.handlePasswordChange.bind(this)}/>
+          </FormGroup>
 
-        <FormGroup
-          className="SignSub"
-          controlId="Submit"
-        >
-          <FormControl
-          className="SignSub"
-            type="submit"
-          />
-        </FormGroup>
-      </form>
+          <FormGroup className="SignSub" controlId="Submit">
+            <FormControl className="SignSub" type="submit"/>
+          </FormGroup>
+        </form>
+
+      </ReactCSSTransitionGroup>
     )
   }
 }

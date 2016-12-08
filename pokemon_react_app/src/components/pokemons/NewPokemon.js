@@ -17,12 +17,15 @@ class NewPokemon extends Component {
 
 
 	handleNatDexNumChange(event) {
-		let natdexnum = event.target.value
-		if (natdexnum){
-			this.props.getBasePokemon({natdexnum: natdexnum})
+		event.persist()	//event.persist is required because react gets upset by waiting with setTimeout
+			setTimeout(() => {
+				let natdexnum = event.target.value
+				if (natdexnum){
+					this.props.getBasePokemon({natdexnum: natdexnum})
+				}
+				this.setState({natdexnum: natdexnum})
+			}, 200) //THIS INTEGER ACCOUNTS FOR SHITTY TYPING
 		}
-		this.setState({natdexnum: natdexnum})
-	}
 
 	handleNicknameChange(event) {
 		this.setState({nickname: event.target.value})
@@ -75,9 +78,9 @@ class NewPokemon extends Component {
 			<div className="newPokemon">
 				<h3>Create a Pokemon</h3>
 				<BasePokemon />
-				<form onSubmit={this.handleSubmit.bind(this)}>
+				<form className="PokeForm" onSubmit={this.handleSubmit.bind(this)}>
 					<label>Pokedex Number(1-12): </label>
-					<input type="integer" placeholder="#" onChange={this.handleNatDexNumChange.bind(this)}/>
+					<input type="integer" placeholder="#" onChange={this.handleNatDexNumChange.bind(this)}/> <input type="checkbox" value="shiny" onChange={this.handleShinyChange.bind(this)}/> Shiny?
 					<br />
 					<label>Nickname: </label>
 					<input type="text" placeholder="Nickname" onChange={this.handleNicknameChange.bind(this)}/>
@@ -94,10 +97,6 @@ class NewPokemon extends Component {
 					<select onChange={this.handleAbilityChange.bind(this)}>
 						{this.listAbilities()}
 					</select>
-					<br />
-					<label>
-						<input type="checkbox" value="shiny" onChange={this.handleShinyChange.bind(this)} /> Shiny?
-					</label>
 					<br />
 					<input type="submit" />
 				</form>
