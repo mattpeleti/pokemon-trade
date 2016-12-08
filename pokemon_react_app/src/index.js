@@ -7,7 +7,6 @@ import { Router, browserHistory } from 'react-router'
 import './index.css';
 
 const store = configureStore()
-window.localStorage.removeItem("jwt")
 
 ReactDOM.render(
 	<Provider store={store}>

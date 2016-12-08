@@ -9,7 +9,6 @@ export default function getNatures(formData) {
 			datatype: 'json'
 		}).done((response) => {
 			dispatch({type: "GET_NATURES", payload: response.natures})
-			}
 		})
 	}
 }

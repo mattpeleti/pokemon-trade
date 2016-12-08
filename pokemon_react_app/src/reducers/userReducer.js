@@ -5,7 +5,7 @@ export default function users(state = defaultState, action) {
 	switch(action.type) {
 		case "CREATE_USER":
 			return {...state, 'creatingUser': true}
-		case "LOGIN":
+		case "STORE_USER_INFO":
 			return {
 				...state,
 				'creatingUser': false,

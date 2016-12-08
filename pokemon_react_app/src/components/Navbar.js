@@ -31,7 +31,6 @@ class Navbar2 extends Component {
 						<NavItem eventKey={5}><Link to={'/pokemon/new'} >Create Pokemon</Link></NavItem>
 					</Nav>
 				</Navbar>
-        <br/>
 			</div>
 		)
 	}

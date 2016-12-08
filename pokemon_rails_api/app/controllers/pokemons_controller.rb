@@ -1,4 +1,4 @@
-class PokemonController < ApplicationController
+class PokemonsController < ApplicationController
 
   def index
     pokemons = Pokemon.all
@@ -15,10 +15,16 @@ class PokemonController < ApplicationController
   end
 
   def create
-    pokemon = Pokemon.new(nickname: pokemon_params[:nickname], level: pokemon_params[:level])
-    base_pokemon = BasePokemon.find_by(natdexnum: pokemon_params[:natdexnum])
+    pokemon = Pokemon.new(
+      nickname: pokemon_params[:nickname],
+      level: pokemon_params[:level],
+      shiny: pokemon_params[:shiny]
+    )
     pokemon.user = current_user
+    base_pokemon = BasePokemon.find_by(natdexnum: pokemon_params[:natdexnum])
     pokemon.base_pokemon = base_pokemon
+    pokemon.nature = Nature.find(pokemon_params[:nature_id])
+    pokemon.ability = Ability.find(pokemon_params[:ability_id])
     if pokemon.save
       render json: {message: "Pokemon saved. Yay!"}
     else
@@ -29,7 +35,7 @@ class PokemonController < ApplicationController
   private
 
   def pokemon_params
-    params.require(:pokemon).permit(:natdexnum, :nickname, :level)
+    params.require(:pokemon).permit(:natdexnum, :nickname, :level, :nature_id, :ability_id, :shiny)
   end
 
 

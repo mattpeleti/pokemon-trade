@@ -19,6 +19,7 @@ class Pokemon < ApplicationRecord
   has_one :pokemon_nature
   has_one :nature, through: :pokemon_nature
   has_one :pokemon_ability
+  has_one :ability, through: :pokemon_ability
   has_one :iv
   has_one :stat
   has_many :trade_posts
