@@ -8,6 +8,7 @@ import setShowShiny from '../../actions/posts/setShowShiny'
 import auth from '../../lib/auth'
 import BasePokemon from './BasePokemon'
 
+
 class NewPokemon extends Component {
 	constructor(props) {
 		super(props)
@@ -48,6 +49,13 @@ class NewPokemon extends Component {
 		this.props.createPokemon(this.state)
 	}
 
+// THIS CAN BE USED FOR WHEN WE IMPLEMENT A DROP DOWN SELECTOR FOR POKEMON
+	// listPokemons(){
+	// 	return this.props.base_pokemon.map((pokemon) => {
+	// 		return <option value={pokemon.id}>{pokemon.name}</option>
+	// 	})
+	// }
+
 	listNatures() {
 		return this.props.natures.map((nature) => {
 			return <option value={nature.id}>{nature.name}</option>
@@ -69,6 +77,10 @@ class NewPokemon extends Component {
 				<form onSubmit={this.handleSubmit.bind(this)}>
 					<label>Pokedex Number(1-12): </label>
 					<input type="integer" placeholder="#" onChange={this.handleNatDexNumChange.bind(this)}/>
+					{/* this can also be used for the drop down */}
+					{/* <select onChange={this.handleBasePokemonChange.bind(this)}>
+						{this.listPokemons()}
+					</select> */}
 					<br />
 					<label>Nickname: </label>
 					<input type="text" placeholder="Nickname" onChange={this.handleNicknameChange.bind(this)}/>

@@ -34,9 +34,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Navbar2 />
-          {this.welcome()}
-          {this.props.children}
+        <Navbar2 />
+        {this.welcome()}
+        {this.props.children}
       </div>
     );
   }
