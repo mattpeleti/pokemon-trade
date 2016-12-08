@@ -16,14 +16,20 @@ class UsersController < ApplicationController
     end
   end
 
-  # def edit
-  #   current_user.update(user_params)
+  # def edit   //make this work
+  #   user = current_user
+  #   if user.update(edit_params)
+  #
   # end
 
   private
 
   def auth_params
     params.require(:auth).permit(:email, :username, :friendcode, :password)
+  end
+
+  def edit_params
+    params.require(:auth).permit(:email, :friendcode, :password)
   end
 
   # def user_params

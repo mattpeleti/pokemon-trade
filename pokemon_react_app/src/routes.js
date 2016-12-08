@@ -5,6 +5,8 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import NewPost from './components/posts/NewPost'
 import NewPokemon from './components/pokemons/NewPokemon'
+import ShowUser from './components/users/ShowUser'
+import EditUser from './components/users/EditUser'
 
 export default (
 	<Route path="/" component={App}>
@@ -15,6 +17,9 @@ export default (
 		</Route>
 		<Route path="pokemon">
 			<Route path="new" component={NewPokemon} />
+		</Route>
+		<Route path="users/:userId" component={ShowUser}>
+			<Route path="edit" component={EditUser} />
 		</Route>
 	</Route>
 )

@@ -102,6 +102,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
+	debugger;
 	return {
 		trade_post_id: state.posts.new_post_id,
 		natures: state.pokemon.natures,
