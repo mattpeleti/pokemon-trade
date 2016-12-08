@@ -10,17 +10,20 @@ class UsersController < ApplicationController
     user = User.new(auth_params)
     if user.save
       jwt = Auth.issue({user_id: user.id})
-      render json: {jwt: jwt, userId: user.id, username: user.username}, status: 200
+      render json: {jwt: jwt, userId: user.id, username: user.username}
     else
       render json: {error: "Account creation failed."}
     end
   end
 
-  # def edit   //make this work
-  #   user = current_user
-  #   if user.update(edit_params)
-  #
-  # end
+  def edit
+    user = current_user
+    if user.update(edit_params)
+      render json: {username: user.username, email: user.email, friendcode: user.friendcode}
+    else
+      render json: {message: "Account edit failed"}
+    end
+  end
 
   private
 
@@ -29,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def edit_params
-    params.require(:auth).permit(:email, :friendcode, :password)
+    params.require(:user).permit(:email, :friendcode, :password)
   end
 
   # def user_params

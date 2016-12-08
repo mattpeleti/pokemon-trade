@@ -6,17 +6,18 @@ export default function editUserInfo(formData) {
 		$.ajax({
 			type: 'POST',
 			url: 'http://localhost:3000/users/edit',
-			data: JSON.stringify({auth: {
+			data: JSON.stringify({user: {
 				password: formData.password,
 				email: formData.email,
 				friendcode: formData.friendcode
 			}}),
+      headers: {authorization: localStorage.getItem('jwt')},
 			contentType: 'application/json; charset=utf-8',
 			datatype: 'json'
 		}).done((response) => {
 			browserHistory.push('/') // our route we redirect to
 			dispatch({type: 'EDIT_USER', payload:
-				{currentUser: {id: response.userId, username: response.username}}
+				{currentUser: {id: response.userId, username: response.username,  friendcode: response.friendcode, email: response.email}}
 			})
 		})
 	}
