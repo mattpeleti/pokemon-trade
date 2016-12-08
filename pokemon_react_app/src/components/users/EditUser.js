@@ -88,12 +88,12 @@ class EditUser extends Component {
           <FormControl type="password" value={this.state.confirmpassword} placeholder="Confirm Password (Optional)" onChange={this.handleConfirmPasswordChange.bind(this)} />
         </FormGroup>
 
-        <FormGroup className="SignSub" controlId="Submit">
-          <FormControl className="SignSub" type="submit" />
+        <FormGroup className="EditSub" controlId="Submit">
+          <FormControl className="EditSub" type="submit" value="Save Changes" />
           </FormGroup>
         </form>
-
-        <Button onClick={this.handleDelete.bind(this)}>Delete This Account</Button>
+        <br />
+        <Button className="DeleteButton" onClick={this.handleDelete.bind(this)}>Delete This Account</Button>
       </div>
     )
   }
