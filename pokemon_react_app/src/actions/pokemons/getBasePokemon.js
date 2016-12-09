@@ -6,7 +6,7 @@ export default function getBasePokemon(formData) {
 	return function(dispatch) {
 		$.ajax({
 			type: 'GET',
-			url: `http://localhost:3000/base_pokemons/${formData.natdexnum}`,
+			url: `http://localhost:3000/api/base_pokemons/${formData.natdexnum}`,
 			headers: {authorization: localStorage.getItem('jwt')},
 			contentType: 'application/json; charset=utf-8',
 			datatype: 'json'

@@ -4,7 +4,7 @@ export default function getAbilities(basePokemonId) {
 	return function(dispatch) {
 		$.ajax({
 			type: 'GET',
-			url: `http://localhost:3000/abilities/${basePokemonId}`,
+			url: `http://localhost:3000/api/abilities/${basePokemonId}`,
 			headers: {authorization: localStorage.getItem('jwt')},
 			contentType: 'application/json; charset=utf-8',
 			datatype: 'json'

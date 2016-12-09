@@ -4,7 +4,7 @@ export default function createPokemon(formData) {
 	return function(dispatch) {
 		$.ajax({
 			type: 'POST',
-			url: 'http://localhost:3000/pokemons',
+			url: 'http://localhost:3000/api/pokemons',
 			data: JSON.stringify({pokemon: {
 				natdexnum: formData.natdexnum,
 				nickname: formData.nickname,

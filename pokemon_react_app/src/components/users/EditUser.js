@@ -63,9 +63,14 @@ class EditUser extends Component {
     this.props.deleteUser(this.props.currentUser.id)
   }
 
+  loaded() {
+    let user = this.props.currentUser
+    return (user && user.id && user.username && user.email && user.friendcode)
+  }
+
 
   render(){
-    return(
+    return( this.loaded() ? (
       <div>
       <h1>Edit Profile Page</h1>
       <form className="UserForm" onSubmit={this.handleSubmit.bind(this)}>
@@ -95,7 +100,7 @@ class EditUser extends Component {
         <br />
         <Button className="DeleteButton" onClick={this.handleDelete.bind(this)}>Delete This Account</Button>
       </div>
-    )
+    ) : <h2>Loading...</h2>)
   }
 }
 

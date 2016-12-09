@@ -5,7 +5,7 @@ export default function getUserInfo() {
 	return function(dispatch) {
 		$.ajax({
 			type: 'GET',
-			url: 'http://localhost:3000/users/show',
+			url: 'http://localhost:3000/api/users/show',
 			headers: {authorization: localStorage.getItem('jwt')},
 			contentType: 'application/json; charset=utf-8',
 			datatype: 'json'

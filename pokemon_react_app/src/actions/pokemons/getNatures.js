@@ -4,7 +4,7 @@ export default function getNatures(formData) {
 	return function(dispatch) {
 		$.ajax({
 			type: 'GET',
-			url: 'http://localhost:3000/natures',
+			url: 'http://localhost:3000/api/natures',
 			contentType: 'application/json; charset=utf-8',
 			datatype: 'json'
 		}).done((response) => {

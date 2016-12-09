@@ -53,22 +53,15 @@ class NewPokemon extends Component {
 		this.props.createPokemon(this.state)
 	}
 
-// THIS CAN BE USED FOR WHEN WE IMPLEMENT A DROP DOWN SELECTOR FOR POKEMON
-	// listPokemons(){
-	// 	return this.props.base_pokemon.map((pokemon) => {
-	// 		return <option value={pokemon.id}>{pokemon.name}</option>
-	// 	})
-	// }
-
 	listNatures() {
 		return this.props.natures.map((nature) => {
-			return <option value={nature.id}>{nature.name}</option>
+			return <option key={nature.id} value={nature.id}>{nature.name}</option>
 		})
 	}
 
 	listAbilities() {
 		return this.props.abilities.map((ability) => {
-			return <option value={ability.id}>{ability.name}</option>
+			return <option key={ability.id} value={ability.id}>{ability.name}</option>
 		})
 	}
 

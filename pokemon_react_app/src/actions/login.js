@@ -5,7 +5,7 @@ export default function login(formData) {
 	return function(dispatch) {
 		$.ajax({
 			type: 'POST',
-			url: 'http://localhost:3000/login',
+			url: 'http://localhost:3000/api/login',
 			data: JSON.stringify({auth: {
 				username: formData.username,
 				password: formData.password

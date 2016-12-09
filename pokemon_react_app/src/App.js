@@ -8,8 +8,6 @@ import getNatures from './actions/pokemons/getNatures'
 import Navbar2 from './components/Navbar'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-import './App.css';
-
 class App extends Component {
 
   componentWillMount(){
@@ -23,19 +21,10 @@ class App extends Component {
     this.props.getNatures()
   }
 
-  welcome(){
-    if(this.props.currentUser && !this.props.children) {
-      return <h2>Welcome, {this.props.currentUser.username}!</h2>
-    } else if(!this.props.currentUser && !this.props.children) {
-      return <h2>Welcome!</h2>
-    }
-  }
-
   render() {
     return (
       <div className="App">
         <Navbar2 />
-        {this.welcome()}
         {this.props.children}
       </div>
     );

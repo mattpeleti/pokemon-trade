@@ -36,8 +36,6 @@ class BasePokemon extends Component {
 	renderPokemonName(){
 		if(this.props.natdexnum){
 			return <p>#{this.props.natdexnum} {this.props.species}</p>
-		}else{
-			<p></p>
 		}
 	}
 

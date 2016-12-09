@@ -5,7 +5,7 @@ export default function initPost() {
 	return function(dispatch) {
 		$.ajax({
 			type: 'POST',
-			url: 'http://localhost:3000/init_post',
+			url: 'http://localhost:3000/api/init_post',
 			headers: {authorization: localStorage.getItem('jwt')},
 			contentType: 'application/json; charset=utf-8',
 			datatype: 'json'

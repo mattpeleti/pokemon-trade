@@ -5,7 +5,7 @@ export default function editUserInfo(userId) {
   return function(dispatch) {
     $.ajax({
       type: 'DELETE',
-      url: `http://localhost:3000/users/${userId}`,
+      url: `http://localhost:3000/api/users/${userId}`,
       headers: {authorization: localStorage.getItem('jwt')},
       contentType: 'application/json; charset=utf-8',
       datatype: 'json'

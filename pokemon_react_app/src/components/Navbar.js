@@ -4,7 +4,6 @@ import { browserHistory } from 'react-router'
 import logout from '../actions/logout'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import '../App.css';
 import {Navbar, Nav, NavItem} from 'react-bootstrap'
 
 class Navbar2 extends Component {
@@ -25,16 +24,16 @@ class Navbar2 extends Component {
 	handleLoginLogout(){
 		if(this.props.currentUser){
 			return <Nav>
-				<NavItem className="nav-item" eventKey={2}><Link className="nav-item-text" to={'/'} onClick={this.handleLogout.bind(this)}>Logout</Link></NavItem>
-				<NavItem className="nav-item" eventKey={4}><Link className="nav-item-text" to={'/posts/new'} >New Post</Link></NavItem>
-				<NavItem className="nav-item" eventKey={5}><Link className="nav-item-text" to={'/pokemon/new'} >Create Pokemon</Link></NavItem>
-				<NavItem className="nav-item" eventKey={5}><Link className="nav-item-text" to={`/users/${this.renderProfileLink()}`} >Profile</Link></NavItem>
+				<NavItem className="nav-item" eventKey={1}><Link className="nav-item-text" to={'/'} onClick={this.handleLogout.bind(this)}>Logout</Link></NavItem>
+				<NavItem className="nav-item" eventKey={2}><Link className="nav-item-text" to={'/posts/new'} >New Post</Link></NavItem>
+				<NavItem className="nav-item" eventKey={3}><Link className="nav-item-text" to={'/pokemon/new'} >Create Pokemon</Link></NavItem>
+				<NavItem className="nav-item" eventKey={4}><Link className="nav-item-text" to={`/users/${this.renderProfileLink()}`} >Profile</Link></NavItem>
 				{/* NEW NAV ITEMS HAVE TO GO HERE  */}
 			</Nav>
 		}else{
 			return <Nav>
 				<NavItem className="nav-item" eventKey={1}><Link className="nav-item-text" to={'/login'}>Login</Link></NavItem>
-				<NavItem className="nav-item" eventKey={3}><Link className="nav-item-text" to={'/signup'}>Sign Up</Link></NavItem>
+				<NavItem className="nav-item" eventKey={2}><Link className="nav-item-text" to={'/signup'}>Sign Up</Link></NavItem>
 			</Nav>
 		}
 	}
@@ -55,9 +54,7 @@ class Navbar2 extends Component {
 			        <Link to={'/'}>PokeTrade</Link>
 			      </Navbar.Brand>
 			    </Navbar.Header>
-					<Nav>
 						{this.handleLoginLogout()}
-					</Nav>
 				</Navbar>
 			</div>
 		)
