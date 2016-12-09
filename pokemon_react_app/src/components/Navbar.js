@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import { browserHistory } from 'react-router'
 import logout from '../actions/logout'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'

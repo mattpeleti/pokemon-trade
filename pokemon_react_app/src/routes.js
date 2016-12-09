@@ -22,6 +22,7 @@ export default (
 		</Route>
 		<Route path="users/:id" component={ShowUser}>
 			<Route path="edit" component={EditUser} />
+			{/*<Route path="pokemon" component={Inventory} />*/}
 		</Route>
 	</Route>
 )

@@ -51,6 +51,7 @@ class NewPokemon extends Component {
 	handleSubmit(event) {
 		event.preventDefault()
 		this.props.createPokemon(this.state)
+		// browserHistory.push(`/users/${this.props.currentUser.id}/pokemon`)
 	}
 
 	listNatures() {
@@ -107,7 +108,8 @@ function mapStateToProps(state) {
 		trade_post_id: state.posts.new_post_id,
 		natures: state.pokemon.natures,
 		abilities: state.basePokemon.abilities,
-		base_pokemon: state.basePokemon.base_pokemon
+		base_pokemon: state.basePokemon.base_pokemon,
+		currentUser: state.users.currentUser
 	}
 }
 

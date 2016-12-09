@@ -2,10 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import createPost from '../../actions/posts/createPost'
-// import initPost from '../../actions/posts/initPost'
-import NewPokemon from '../pokemons/NewPokemon'
 import auth from '../../lib/auth'
-import $ from 'jquery'
 
 class NewPost extends Component {
 	constructor(props){

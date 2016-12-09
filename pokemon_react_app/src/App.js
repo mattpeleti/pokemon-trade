@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Link } from 'react-router'
-import { browserHistory } from 'react-router'
 import getUserInfo from './actions/users/getUserInfo'
 import getNatures from './actions/pokemons/getNatures'
 import Navbar2 from './components/Navbar'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class App extends Component {
 

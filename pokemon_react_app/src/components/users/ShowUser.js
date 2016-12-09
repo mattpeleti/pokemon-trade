@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import auth from '../../lib/auth'
-import EditUser from './EditUser'
 import { Link } from 'react-router'
 
 class ShowUser extends Component {

@@ -63,7 +63,7 @@ class Signup extends Component {
       <ReactCSSTransitionGroup transitionName="Login-Signup" transitionAppear={true} transitionAppearTimeout={300} transitionEnter={false} transitionLeave={false}>
         <form onSubmit={this.handleSubmit.bind(this)} className="UserForm" >
           <FormGroup controlId="UserNameInput" validationState={this.getValidationForUsername()}>
-            <FormControl type="text" value={this.state.username} placeholder="Username" onChange={this.handleUsernameChange.bind(this)} className = "UsernameInput"/>
+            <FormControl type="text" value={this.state.username} placeholder="Username" onChange={this.handleUsernameChange.bind(this)} className="UsernameInput"/>
           </FormGroup>
 
           <FormGroup controlId="EmailInput" validationState={this.getValidationForEmail()}>

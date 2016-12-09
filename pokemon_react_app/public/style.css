@@ -28,90 +28,6 @@ body {
 
 .App h2 {
   color: #fff;
-
-}
-
-.BasePokeCard p {
-  color: #fff;
-}
-
-.PokeForm label {
-  color: #fff;
-}
-.newPokemon h3 {
-  color: #FFF;
-}
-
-
-/* ReactCSSTransitionGroup Animations */
-
-
-.Login-Signup-appear {
-  opacity: 0;
-}
-
-.Login-Signup-appear-active {
-  opacity: 1;
-  transition: opacity 300ms ease-in;
-}
-
-.Base-Pokemon-Card-enter {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translate3d(100%, 0, 0);
-}
-
-.Base-Pokemon-Card-enter-active {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translate3d(0, 0, 0);
-  transition: all ease-out 300ms;
-}
-
-.Base-Pokemon-Card-leave {
-  transform: translate3d(0, 0, 0);
-}
-
-.Base-Pokemon-Card-leave-active {
-  transform: translate3d(-100%, 0, 0);
-  transition: all ease-out 300ms;
-}
-
-
-.nav-item {
-  opacity: 1;
-}
-
-.nav-item:hover {
-  background-color: #B6C3D2;
-  color: #FFF;
-}
-
-.nav-item-text {
-  opacity: 1;
-}
-
-.nav-item-text:hover {
-  color: #FFF;
-}
-
-
-body {
-  background: url(/alola_region.jpg) no-repeat center center fixed;
-  background-size: cover;
-  background-repeat: no-repeat;;
-  background-position: center;
-  color: #FFF;
-}
-
-
-.App h2 {
-  color: #fff;
-
 }
 
 .BasePokeCard p {
@@ -164,10 +80,6 @@ body {
 }
 
 /*----------------------------------------------*/
-
-.App {
-  text-align: center;
-}
 /*
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -190,6 +102,11 @@ body {
   to { transform: rotate(360deg); }
 }
 */
+
+.App {
+  text-align: center;
+}
+
 .UserForm {
   width: 33%;
   display: inline-block;
@@ -218,7 +135,7 @@ body {
 }
 
 .EditSub:hover {
-  background-color: blue; /* Green */
+  background-color: lightgreen; /* Green */
   color: white;
 }
 

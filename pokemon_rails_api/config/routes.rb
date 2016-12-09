@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     get '/base_pokemons/:natdexnum', to: 'base_pokemons#show'
   end
 
-  get '*path', to: 'catch_all#index'
+  # get '*path', to: 'catch_all#index'
 end

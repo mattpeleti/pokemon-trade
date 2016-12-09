@@ -1,5 +1,4 @@
 import $ from 'jquery'
-import { browserHistory } from 'react-router'
 
 export default function createPost(formData) {
 	return function(dispatch) {
