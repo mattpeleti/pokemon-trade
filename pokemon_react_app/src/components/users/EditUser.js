@@ -9,7 +9,11 @@ import deleteUser from '../../actions/users/deleteUser'
 class EditUser extends Component {
   constructor(props){
     super(props)
-    this.state = {id: this.props.currentUser.id, email: this.props.currentUser.email, friendcode: this.props.currentUser.friendcode, password: "", confirmPassword: ""}
+    if(this.loaded()){
+      this.state = {id: this.props.currentUser.id, email: this.props.currentUser.email, friendcode: this.props.currentUser.friendcode, password: "", confirmPassword: ""}
+    } else {
+      this.state = {id: this.props.params.id, email: "", friendcode: "", password: "", confirmPassword: ""}
+    }
   }
 
   handleEmailChange(event){
