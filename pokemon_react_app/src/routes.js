@@ -6,6 +6,7 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import NewPost from './components/posts/NewPost'
 import NewPokemon from './components/pokemons/NewPokemon'
+import Inventory from './components/pokemons/Inventory'
 import ShowUser from './components/users/ShowUser'
 import EditUser from './components/users/EditUser'
 
@@ -22,7 +23,7 @@ export default (
 		</Route>
 		<Route path="users/:id" component={ShowUser}>
 			<Route path="edit" component={EditUser} />
-			{/*<Route path="pokemon" component={Inventory} />*/}
+			<Route path="pokemon" component={Inventory} />
 		</Route>
 	</Route>
 )

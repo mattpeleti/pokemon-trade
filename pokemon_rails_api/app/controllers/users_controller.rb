@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
+  def update
     user = current_user
     if user.update(edit_params)
       render json: {userId: user.id, username: user.username, email: user.email, friendcode: user.friendcode}
@@ -39,9 +39,5 @@ class UsersController < ApplicationController
   def edit_params
     params.require(:user).permit(:email, :friendcode, :password)
   end
-
-  # def user_params
-  #   params.require(:user).permit(:email, :friendcode, :username)
-  # end
 
 end

@@ -1,10 +1,13 @@
 import $ from 'jquery'
 
+import getPokemons from '../../actions/pokemons/getPokemons'
+
+
 export default function createPokemon(formData) {
 	return function(dispatch) {
 		$.ajax({
 			type: 'POST',
-			url: 'http://localhost:3000/api/pokemons',
+			url: `http://localhost:3000/api/users/${formData.userId}/pokemons`,
 			data: JSON.stringify({pokemon: {
 				natdexnum: formData.natdexnum,
 				nickname: formData.nickname,
@@ -18,6 +21,7 @@ export default function createPokemon(formData) {
 			datatype: 'json'
 		}).done((response) => {
 			dispatch({type: 'CREATE_POKEMON', payload: response.pokemon})
+			dispatch(getPokemons())
 		})
 	}
 }
