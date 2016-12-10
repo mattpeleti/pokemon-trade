@@ -19,6 +19,7 @@ class RequestedPokemon < ApplicationRecord
 	belongs_to :base_pokemon
   belongs_to :trade_post
   has_many :requested_pokemon_natures
-  has_many :nature, through: :requested_pokemon_nature
-  has_many :ability
+  has_many :natures, through: :requested_pokemon_natures
+  has_many :requested_pokemon_abilities
+  has_many :abilities, through: :requested_pokemon_abilities
 end

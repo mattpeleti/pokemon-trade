@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206173547) do
+ActiveRecord::Schema.define(version: 20161210053313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,11 @@ ActiveRecord::Schema.define(version: 20161206173547) do
     t.boolean "shiny"
     t.string  "held_item"
     t.string  "pokeball"
+  end
+
+  create_table "requested_pokemon_abilities", force: :cascade do |t|
+    t.integer "requested_pokemon_id"
+    t.integer "ability_id"
   end
 
   create_table "requested_pokemon_natures", force: :cascade do |t|

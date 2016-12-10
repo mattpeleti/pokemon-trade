@@ -35,20 +35,20 @@ class Pokemon extends Component {
 	}
 
 	render() {
-				/*<div className="Poke">
-				<ReactCSSTransitionGroup transitionName="Pokemon-Card" transitionEnter={true} transitionLeave={false} transitionAppear={false} transitionEnterTimeout={300} transitionLeaveTimeout={300}>*/
-				return(
+		return(
+			<div className="Poke">
+				<ReactCSSTransitionGroup transitionName="Pokemon-Card" transitionEnter={true} transitionLeave={true} transitionAppear={false} transitionEnterTimeout={300} transitionLeaveTimeout={300}>
 					<div key={this.props.pokemon.id} className="PokeCard">
-						{this.renderSprite()}<br />
-						{this.renderNickname()}, lvl {this.props.pokemon.level}
+						{this.renderSprite()}
+						<p>{this.renderNickname()}, lvl {this.props.pokemon.level}</p>
 						{this.renderTypes()}<br />
 						<p>ability: {this.props.ability.name}</p>
 						<p>nature: {this.props.nature.name}</p>
 					</div>
-					)
-					/*</ReactCSSTransitionGroup>
-					</div>*/
-				}
+				</ReactCSSTransitionGroup>
+			</div>
+		)
+	}
 }
 
 // function mapStateToProps(state) {

@@ -1,15 +1,15 @@
 # == Schema Information
 #
-# Table name: requested_pokemon_natures
+# Table name: requested_pokemon_abilities
 #
 #  id                   :integer          not null, primary key
 #  requested_pokemon_id :integer
-#  nature_id            :integer
+#  ability_id           :integer
 #
 
 
-class RequestedPokemonNature < ApplicationRecord
+class RequestedPokemonAbility < ApplicationRecord
   belongs_to :requested_pokemon
-  belongs_to :nature
+  belongs_to :ability
 
 end

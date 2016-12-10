@@ -15,8 +15,9 @@ class TradePost < ApplicationRecord
   has_many :trade_offers
   belongs_to :pokemon
 
-  def initialize
-  	super
-  		self.status = "OPEN"
+  after_initialize :set_defaults, unless: :persisted?
+
+  def set_defaults
+    self.status ||= 'OPEN'
   end
 end

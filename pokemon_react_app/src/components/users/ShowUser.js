@@ -15,8 +15,8 @@ class ShowUser extends Component {
 			return <div>{this.props.children}</div>
 		} else {
 			return ( this.loaded() ? (
-				<div>
-					<h3>this is the Users Show page</h3>
+				<div className={'ShowUser'}>
+					<h3>My Profile</h3>
 					<p>Username: {this.props.currentUser.username}</p>
 					<p>ID: {this.props.currentUser.id}</p>
 					<p>friendcode: {this.props.currentUser.friendcode}</p>

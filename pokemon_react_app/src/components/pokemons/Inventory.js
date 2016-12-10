@@ -31,7 +31,7 @@ class Inventory extends Component {
 			let ability = this.findAbilityOf(pokemon.id)
 			let nature = this.findNatureOf(pokemon.id)
 			let basePokemon = this.findBasePokemonOf(pokemon.id)
-			return <Pokemon pokemon={pokemon} ability={ability} nature={nature} basePokemon={basePokemon}/>
+			return <Pokemon pokemon={pokemon} ability={ability} nature={nature} basePokemon={basePokemon} />
 		})
 	}
 
@@ -40,13 +40,8 @@ class Inventory extends Component {
 			this.props.getPokemons()
 		}
 	}
-	// componentWillReceiveProps() {
-	// 	if(!this.loaded()) {
-	// 		this.props.getPokemons()
-	// 	}
-	// }
 
-	loaded(){
+	loaded() {
 		return !!this.props.pokemons[0]
 	}
 

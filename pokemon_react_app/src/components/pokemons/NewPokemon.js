@@ -12,7 +12,7 @@ import BasePokemon from './BasePokemon'
 class NewPokemon extends Component {
 	constructor(props) {
 		super(props)
-		this.state = {natdexnum: null, nickname: "", level: null, trade_post_id: props.trade_post_id, nature: 1, ability: 1, shiny: false}
+		this.state = {natdexnum: null, nickname: "", level: null, nature: 1, ability: 1, shiny: false}
 	}
 
 
@@ -105,7 +105,6 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
 	return {
-		trade_post_id: state.posts.new_post_id,
 		natures: state.basePokemon.natures,
 		abilities: state.basePokemon.abilities,
 		base_pokemon: state.basePokemon.base_pokemon,
