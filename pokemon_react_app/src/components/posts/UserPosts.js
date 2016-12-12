@@ -11,16 +11,31 @@ import getUserPosts from '../../actions/posts/getUserPosts'
 class UserPosts extends Component {
 
 	loaded() {
+		debugger
 		return !!this.props.userPosts
 	}
 
-	renderUserPosts() {
-		return this.props.userPosts.map((post) => {
-			// return <Post />
-		})
+	componentWillMount() {
+
+		if(!this.loaded()) {
+			this.props.getUserPosts()
+		}
 	}
 
+
+
+	// renderUserPosts() {
+	// 	return this.props.userPosts.map((post) => {
+	// 		let ability = this.findAbilityOf(post.id)
+	// 		let nature = this.findNatureOf(post.id)
+	// 		let basePokemon = this.findBasePokemonOf(post.id)
+
+	// 		return <Post post={post} postPokemon={ability, nature, basePokemon}/>
+	// 	})
+	// }
+
 	render() {
+
 		return( this.loaded() ? (
 			<div>
 				<h3>User's Posts</h3>

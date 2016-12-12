@@ -9,7 +9,7 @@ export default function getUserPosts(userId) {
 			contentType: 'application/json; charset=utf-8',
 			datatype: 'json'
 		}).done((response) => {
-			dispatch({type: 'GET_USER_POSTS', payload: response})
+			dispatch({type: 'GET_USER_POSTS', payload: {posts: response.user_posts, postPokemons: response.post_pokemons, reqPokemons: response.requested_pokemons}})
 		})
 	}
 }

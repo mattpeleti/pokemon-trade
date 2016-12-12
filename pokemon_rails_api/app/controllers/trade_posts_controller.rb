@@ -1,8 +1,17 @@
 class TradePostsController < ApplicationController
 
+  #requested_pokemons << RequestedPokemon.find_by(trade_post_id: 17)
+
+
   def index
-    posts = current_user.trade_posts
-    render json: {user_posts: posts}
+    posts = current_user.trade_posts #RequestedPokemon[0].trade_post => the trade post that the req poke belongs to , posts.pokemon => the posted poke
+    requested_pokemons = []
+    post_pokemons = []
+    posts.map do |post|
+      post_pokemons << post.pokemon
+      requested_pokemons << RequestedPokemon.find_by(trade_post_id: post.id)
+    end
+    render json: {user_posts: posts, requested_pokemons: requested_pokemons, post_pokemons: post_pokemons}
   end
 
   def show
