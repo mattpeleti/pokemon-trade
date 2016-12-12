@@ -13,7 +13,7 @@ import BasePokemon from './BasePokemon'
 class NewPokemon extends Component {
 	constructor(props) {
 		super(props)
-		this.state = {natdexnum: null, nickname: "", level: null, nature: 1, ability: 1, shiny: false}
+		this.state = {natdexnum: 1, nickname: "", level: null, nature: null, ability: null, shiny: false}
 	}
 
 	loaded(){
@@ -21,10 +21,20 @@ class NewPokemon extends Component {
 	}
 
 	componentWillMount(){
+		this.props.setShowShiny(false)
+		this.props.getBasePokemon({natdexnum: 1})
 		if(!this.loaded()){
 			this.props.getNatures()
 		}
 	}
+
+	// componentWillUpdate() {
+	// 	debugger
+	// 	if(this.props.abilities[0]){
+	// 		this.state = {...this.state, ability: this.props.abilities[0]}
+	// 		// this.state = {...this.state, ability: this.props.abilities[0]}
+	// 	}
+	// }
 
 	handleNatDexNumChange(event) {
 		event.persist()	//event.persist is required because react gets upset by waiting with setTimeout
@@ -87,18 +97,20 @@ class NewPokemon extends Component {
 					<input type="integer" placeholder="#" onChange={this.handleNatDexNumChange.bind(this)}/> <input type="checkbox" value="shiny" onChange={this.handleShinyChange.bind(this)}/> Shiny?
 					<br />
 					<label>Nickname: </label>
-					<input type="text" placeholder="Nickname" onChange={this.handleNicknameChange.bind(this)}/>
+					<input type="text" placeholder="Nickname" onChange={this.handleNicknameChange.bind(this)} />
 					<br />
 					<label>Level: </label>
 					<input type="intger" placeholder="Level" onChange={this.handleLevelChange.bind(this)}/>
 					<br />
 					<label>Select a Nature: </label>
 					<select onChange={this.handleNatureChange.bind(this)}>
+						<option key={666} value={null}>---</option>
 						{this.listNatures()}
 					</select>
 					<br />
 					<label>Select an Ability: </label>
 					<select onChange={this.handleAbilityChange.bind(this)}>
+						<option key={666} value={null}>---</option>
 						{this.listAbilities()}
 					</select>
 					<br />
@@ -117,7 +129,7 @@ function mapStateToProps(state) {
 	return {
 		natures: state.basePokemon.natures,
 		abilities: state.basePokemon.abilities,
-		base_pokemon: state.basePokemon.base_pokemon,
+		basePokemon: state.basePokemon.base_pokemon,
 		currentUser: state.users.currentUser
 	}
 }
