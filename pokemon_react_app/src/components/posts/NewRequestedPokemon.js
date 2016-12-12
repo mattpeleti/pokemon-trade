@@ -15,20 +15,31 @@ class NewRequestedPokemon extends Component {
 		this.state = {natdexnum: null, min_level: 1, max_level: 100, shiny: false, natures: [], abilities: []}
 	}
 
-	componentDidUpdate(){
+	loaded() {
+		return (this.props.natures[0] && this.props.abilities[0])
+	}
+
+	componentWillMount() {
+		if(this.loaded()) {
+			this.setState({natures: [this.props.natures[0].id]})
+			this.setState({abilities: [this.props.abilities[0].id]})
+		}
+	}
+
+	componentDidUpdate() {
 		this.props.updateRequestedPokemonValues(this.state)
 	}
 
 	handleNatDexNumChange(event) {
 		event.persist()	//event.persist is required because react gets upset by waiting with setTimeout
-			setTimeout(() => {
-				let natdexnum = event.target.value
-				if (natdexnum){
-					this.props.getBasePokemon({natdexnum: natdexnum})
-				}
-				this.setState({natdexnum: natdexnum, base_pokemon_id: this.props.base_pokemon.id})
-			}, 200) //THIS INTEGER ACCOUNTS FOR SHITTY TYPING
-		}
+		setTimeout(() => {
+			let natdexnum = event.target.value
+			if (natdexnum){
+				this.props.getBasePokemon({natdexnum: natdexnum})
+			}
+			this.setState({natdexnum: natdexnum, base_pokemon_id: this.props.base_pokemon.id})
+		}, 200) //THIS INTEGER ACCOUNTS FOR SHITTY TYPING
+	}
 
 	handleMinLevelChange(event) {
 		this.setState({min_level: event.target.value})

@@ -5,4 +5,16 @@ import pokemon from './pokemonReducer'
 import forms from './formReducer'
 import basePokemon from './basePokemonReducer'
 
-export default combineReducers({ users, posts, pokemon, basePokemon, forms })
+const appReducer = combineReducers({
+	users, posts, pokemon, basePokemon, forms
+})
+
+const rootReducer = (state, action) => {
+  if (action.type === 'LOGOUT') {
+    state = undefined
+  }
+
+  return appReducer(state, action)
+}
+
+export default rootReducer

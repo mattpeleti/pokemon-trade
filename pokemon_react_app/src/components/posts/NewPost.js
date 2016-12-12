@@ -103,9 +103,7 @@ class NewPost extends Component {
 					<NewRequestedPokemon />
 					<br />
 					<input type="submit"/>
-
 				</form>
-				{/* this.renderPokemonForm() */}
 			</div>
 		) : <h3>Loading...</h3>)
 	}

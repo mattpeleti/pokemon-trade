@@ -42,7 +42,7 @@ class Inventory extends Component {
 	}
 
 	loaded() {
-		return !!this.props.pokemons[0]
+		return (this.props.pokemons[0] && this.props.abilities[0])
 	}
 
 	render() {

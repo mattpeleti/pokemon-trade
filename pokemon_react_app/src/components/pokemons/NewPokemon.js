@@ -3,6 +3,7 @@ import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import getBasePokemon from '../../actions/pokemons/getBasePokemon'
+import getNatures from '../../actions/pokemons/getNatures'
 import createPokemon from '../../actions/pokemons/createPokemon'
 import setShowShiny from '../../actions/posts/setShowShiny'
 import auth from '../../lib/auth'
@@ -15,6 +16,15 @@ class NewPokemon extends Component {
 		this.state = {natdexnum: null, nickname: "", level: null, nature: 1, ability: 1, shiny: false}
 	}
 
+	loaded(){
+		return !!this.props.natures[0]
+	}
+
+	componentWillMount(){
+		if(!this.loaded()){
+			this.props.getNatures()
+		}
+	}
 
 	handleNatDexNumChange(event) {
 		event.persist()	//event.persist is required because react gets upset by waiting with setTimeout
@@ -68,7 +78,7 @@ class NewPokemon extends Component {
 
 	render() {
 
-		return(
+		return( this.loaded() ? (
 			<div className="newPokemon">
 				<h3>Create a Pokemon</h3>
 				<BasePokemon />
@@ -95,12 +105,12 @@ class NewPokemon extends Component {
 					<input type="submit" />
 				</form>
 			</div>
-		)
+		) : <h3>Loading...</h3>)
 	}
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ createPokemon, getBasePokemon, setShowShiny }, dispatch)
+	return bindActionCreators({ createPokemon, getBasePokemon, setShowShiny, getNatures }, dispatch)
 }
 
 function mapStateToProps(state) {
