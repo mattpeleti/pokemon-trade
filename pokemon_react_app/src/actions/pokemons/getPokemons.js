@@ -1,16 +1,15 @@
 import $ from 'jquery'
-import { browserHistory } from 'react-router'
 
-export default function initPost() {
+export default function getPokemons(userId) {
 	return function(dispatch) {
 		$.ajax({
-			type: 'POST',
-			url: 'http://localhost:3000/init_post',
+			type: 'GET',
+			url: `http://localhost:3000/api/users/${userId}/pokemons`,
 			headers: {authorization: localStorage.getItem('jwt')},
 			contentType: 'application/json; charset=utf-8',
 			datatype: 'json'
 		}).done((response) => {
-			dispatch({type: 'INITIALIZE_POST', payload: response.id})
+			dispatch({type: 'GET_POKEMONS', payload: response})
 		})
 	}
 }

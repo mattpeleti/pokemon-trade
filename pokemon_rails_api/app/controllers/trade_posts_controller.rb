@@ -6,7 +6,7 @@ class TradePostsController < ApplicationController
   end
 
   def show
-    post = TradePost.find(post_id_params)
+    post = TradePost.find(params[:id])
     if post
       render json: {post: post}
     else
@@ -15,9 +15,13 @@ class TradePostsController < ApplicationController
   end
 
   def create
-    post = TradePost.new(post_params)
+    post = TradePost.new(
+      title: post_params[:title],
+      description: post_params[:description],
+      pokemon_id: post_params[:pokemon_id],
+    )
     if post.save
-      render json: {message: "Post saved. Yay!"}
+      render json: {postId: post.id}
     else
       render json: {error: "Post creation failed."}
     end
@@ -26,11 +30,8 @@ class TradePostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :pokemon_id, :requested_pokemon_id)
+    params.require(:post).permit(:title, :description, :pokemon_id)
   end
 
-  def post_id_params
-    params.require(:post).permit(:id)
-  end
 
 end

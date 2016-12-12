@@ -28,18 +28,29 @@ body {
 
 .App h2 {
   color: #fff;
-
 }
 
+.ShowUser {
+  color: #fff;
+}
 .BasePokeCard p {
+  color: #fff;
+}
+
+.PokeCard p {
   color: #fff;
 }
 
 .PokeForm label {
   color: #fff;
 }
+
 .newPokemon h3 {
   color: #FFF;
+}
+
+.NewPostForm label {
+  color: #fff;
 }
 
 
@@ -78,4 +89,112 @@ body {
 .Base-Pokemon-Card-leave-active {
   transform: translate3d(-100%, 0, 0);
   transition: all ease-out 300ms;
+}
+
+.Pokemon-Card-enter {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(100%, 0, 0);
+}
+
+.Pokemon-Card-enter-active {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0, 0, 0);
+  transition: all ease-out 300ms;
+}
+
+.Pokemon-Card-leave {
+  transform: translate3d(0, 0, 0);
+}
+
+.Pokemon-Card-leave-active {
+  transform: translate3d(-100%, 0, 0);
+  transition: all ease-out 300ms;
+}
+
+/*----------------------------------------------*/
+/*
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+*/
+
+.App {
+  text-align: center;
+}
+
+.UserForm {
+  width: 33%;
+  display: inline-block;
+  text-align: center;
+}
+
+.LoginForm {
+  width: 33%;
+  display: inline-block;
+  text-align: center;
+}
+
+.SignSub {
+  -webkit-transition-duration: 1.0s; /* Safari */
+    transition-duration: .5s;
+}
+
+.SignSub:hover {
+  background-color: lightgreen; /* Green */
+  color: white;
+}
+
+.EditSub {
+  -webkit-transition-duration: 1.0s; /* Safari */
+    transition-duration: .5s;
+}
+
+.EditSub:hover {
+  background-color: lightgreen; /* Green */
+  color: white;
+}
+
+.DeleteButton {
+  -webkit-transition-duration: 1.0s; /* Safari */
+    transition-duration: .5s;
+}
+
+.DeleteButton:hover {
+  background-color: red; /* Green */
+  color: white;
+}
+
+
+
+.LogSub {
+  -webkit-transition-duration: 1.0s; /* Safari */
+    transition-duration: 1.0s;
+}
+
+.LogSub:hover {
+  background-color: lightgreen; /* Green */
+  color: white;
 }

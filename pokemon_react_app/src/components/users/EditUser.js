@@ -9,7 +9,14 @@ import deleteUser from '../../actions/users/deleteUser'
 class EditUser extends Component {
   constructor(props){
     super(props)
-    this.state = {id: this.props.currentUser.id, email: this.props.currentUser.email, friendcode: this.props.currentUser.friendcode, password: "", confirmPassword: ""}
+    this.state = {id: this.props.params.id, email: "", friendcode: "", password: "", confirmPassword: ""}
+  }
+
+  componentWillMount(){
+    this.prePopulateForm()
+  }
+  componentWillReceiveProps(){
+    this.prePopulateForm()
   }
 
   handleEmailChange(event){
@@ -63,11 +70,22 @@ class EditUser extends Component {
     this.props.deleteUser(this.props.currentUser.id)
   }
 
+  prePopulateForm(){
+    if(this.loaded()) {
+      this.setState({friendcode: this.props.currentUser.friendcode, email: this.props.currentUser.email})
+    }
+  }
+
+  loaded() {
+    let user = this.props.currentUser
+    return (user && user.id && user.username && user.email && user.friendcode)
+  }
+
 
   render(){
-    return(
+    return( this.loaded() ? (
       <div>
-      <h1>Edit Profile Page</h1>
+      <h1>Edit Profile</h1>
       <form className="UserForm" onSubmit={this.handleSubmit.bind(this)}>
 
         <FormGroup controlId="EmailInput" validationState={this.getValidationForEmail()}>
@@ -81,7 +99,7 @@ class EditUser extends Component {
         </FormGroup>
 
         <FormGroup controlId="PasswordInput" validationState={this.getValidationForPassword()}>
-          <FormControl type="password" value={this.state.password} placeholder="Password (Optional)" onChange={this.handlePasswordChange.bind(this)} />
+          <FormControl type="password" value={this.state.password} placeholder="New Password (Optional)" onChange={this.handlePasswordChange.bind(this)} />
         </FormGroup>
 
         <FormGroup controlId="ConfirmPasswordInput" validationState={this.getValidationForConfirmPassword()}>
@@ -95,7 +113,7 @@ class EditUser extends Component {
         <br />
         <Button className="DeleteButton" onClick={this.handleDelete.bind(this)}>Delete This Account</Button>
       </div>
-    )
+    ) : <h2>Loading...</h2>)
   }
 }
 

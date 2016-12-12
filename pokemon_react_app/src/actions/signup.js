@@ -6,7 +6,7 @@ export default function signup(formData) {
 		dispatch({type: 'CREATE_USER'})
 		$.ajax({
 			type: 'POST',
-			url: 'http://localhost:3000/users',
+			url: 'http://localhost:3000/api/users',
 			data: JSON.stringify({auth: {
 				username: formData.username,
 				password: formData.password,
@@ -16,11 +16,16 @@ export default function signup(formData) {
 			contentType: 'application/json; charset=utf-8',
 			datatype: 'json'
 		}).done((response) => {
-			browserHistory.push('/') // our route we redirect to
+			browserHistory.push('/')
 			localStorage.setItem('jwt', response.jwt)
-			dispatch({type: 'STORE_USER_INFO', payload:
-				{currentUser: {id: response.userId, username: response.username, email: response.email, friendcode: response.friendcode}}
-			})
+			dispatch({type: 'STORE_USER_INFO', payload: {
+				currentUser: {
+					id: response.userId,
+					username: response.username,
+					email: response.email,
+					friendcode: response.friendcode
+				}
+			}})
 		})
 	}
 }

@@ -4,8 +4,8 @@ import { browserHistory } from 'react-router'
 export default function editUserInfo(formData) {
   return function(dispatch) {
     $.ajax({
-      type: 'POST',
-      url: `http://localhost:3000/users/${formData.id}/edit`,
+      type: 'PATCH',
+      url: `http://localhost:3000/api/users/${formData.id}`,
       data: JSON.stringify({user: {
         password: formData.password,
         email: formData.email,

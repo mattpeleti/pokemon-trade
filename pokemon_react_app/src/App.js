@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Link } from 'react-router'
-import { browserHistory } from 'react-router'
 import getUserInfo from './actions/users/getUserInfo'
 import getNatures from './actions/pokemons/getNatures'
 import Navbar2 from './components/Navbar'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-
-import './App.css';
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class App extends Component {
 
@@ -23,19 +19,10 @@ class App extends Component {
     this.props.getNatures()
   }
 
-  welcome(){
-    if(this.props.currentUser && !this.props.children) {
-      return <h2>Welcome, {this.props.currentUser.username}!</h2>
-    } else if(!this.props.currentUser && !this.props.children) {
-      return <h2>Welcome!</h2>
-    }
-  }
-
   render() {
     return (
       <div className="App">
         <Navbar2 />
-        {this.welcome()}
         {this.props.children}
       </div>
     );

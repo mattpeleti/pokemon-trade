@@ -3,6 +3,7 @@ import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import getBasePokemon from '../../actions/pokemons/getBasePokemon'
+import getNatures from '../../actions/pokemons/getNatures'
 import createPokemon from '../../actions/pokemons/createPokemon'
 import setShowShiny from '../../actions/posts/setShowShiny'
 import auth from '../../lib/auth'
@@ -12,9 +13,18 @@ import BasePokemon from './BasePokemon'
 class NewPokemon extends Component {
 	constructor(props) {
 		super(props)
-		this.state = {natdexnum: null, nickname: "", level: null, trade_post_id: props.trade_post_id, nature: 1, ability: 1, shiny: false}
+		this.state = {natdexnum: null, nickname: "", level: null, nature: 1, ability: 1, shiny: false}
 	}
 
+	loaded(){
+		return !!this.props.natures[0]
+	}
+
+	componentWillMount(){
+		if(!this.loaded()){
+			this.props.getNatures()
+		}
+	}
 
 	handleNatDexNumChange(event) {
 		event.persist()	//event.persist is required because react gets upset by waiting with setTimeout
@@ -51,30 +61,24 @@ class NewPokemon extends Component {
 	handleSubmit(event) {
 		event.preventDefault()
 		this.props.createPokemon(this.state)
+		browserHistory.push(`/users/${this.props.currentUser.id}/pokemon`)
 	}
-
-// THIS CAN BE USED FOR WHEN WE IMPLEMENT A DROP DOWN SELECTOR FOR POKEMON
-	// listPokemons(){
-	// 	return this.props.base_pokemon.map((pokemon) => {
-	// 		return <option value={pokemon.id}>{pokemon.name}</option>
-	// 	})
-	// }
 
 	listNatures() {
 		return this.props.natures.map((nature) => {
-			return <option value={nature.id}>{nature.name}</option>
+			return <option key={nature.id} value={nature.id}>{nature.name}</option>
 		})
 	}
 
 	listAbilities() {
 		return this.props.abilities.map((ability) => {
-			return <option value={ability.id}>{ability.name}</option>
+			return <option key={ability.id} value={ability.id}>{ability.name}</option>
 		})
 	}
 
 	render() {
 
-		return(
+		return( this.loaded() ? (
 			<div className="newPokemon">
 				<h3>Create a Pokemon</h3>
 				<BasePokemon />
@@ -101,20 +105,20 @@ class NewPokemon extends Component {
 					<input type="submit" />
 				</form>
 			</div>
-		)
+		) : <h3>Loading...</h3>)
 	}
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ createPokemon, getBasePokemon, setShowShiny }, dispatch)
+	return bindActionCreators({ createPokemon, getBasePokemon, setShowShiny, getNatures }, dispatch)
 }
 
 function mapStateToProps(state) {
 	return {
-		trade_post_id: state.posts.new_post_id,
-		natures: state.pokemon.natures,
+		natures: state.basePokemon.natures,
 		abilities: state.basePokemon.abilities,
-		base_pokemon: state.basePokemon.base_pokemon
+		base_pokemon: state.basePokemon.base_pokemon,
+		currentUser: state.users.currentUser
 	}
 }
 

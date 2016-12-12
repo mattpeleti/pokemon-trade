@@ -1,13 +1,14 @@
 import $ from 'jquery'
-import { browserHistory } from 'react-router'
 
-export default function createPost(formData) {
+import createRequestedPokemon from '../pokemons/createRequestedPokemon'
+
+export default function createPost(formData, formData2) {
 	return function(dispatch) {
 		$.ajax({
 			type: 'POST',
-			url: 'http://localhost:3000/trade_posts',
+			url: 'http://localhost:3000/api/trade_posts',
 			data: JSON.stringify({post: {
-				pokemon_id: formData.pokemonId, // Drop down input of all the users pokemon with pokemon id as it's value
+				pokemon_id: formData.pokemonId, // Drop down input of all the user's pokemon with pokemon id as it's value
 				title: formData.title,
 				description: formData.description
 			}}),
@@ -15,6 +16,7 @@ export default function createPost(formData) {
 			contentType: 'application/json; charset=utf-8',
 			datatype: 'json'
 		}).done((response) => {
+			dispatch(createRequestedPokemon(formData2, response.postId))
 			dispatch({type: 'CREATE_POST', payload: response.post})
 		})
 	}
