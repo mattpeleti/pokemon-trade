@@ -1,8 +1,8 @@
 class TradePostsController < ApplicationController
 
   def index
-    posts = TradePost.all
-    render json: {posts: posts}
+    posts = current_user.trade_posts
+    render json: {user_posts: posts}
   end
 
   def show

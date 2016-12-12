@@ -10,7 +10,7 @@ import auth from '../../lib/auth'
 class NewPost extends Component {
 	constructor(props){
 		super(props)
-		this.state = {...this.props.requestedPokemonValues, title: "", description: "", pokemonId: 1}
+		this.state = {...this.props.requestedPokemonValues, title: "", description: "", pokemonId: null}
 	}
 
 	componentWillMount() {
@@ -39,7 +39,6 @@ class NewPost extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault()
-		debugger
 		this.props.createPost(this.state, this.props.requestedPokemonValues)
 	}
 
@@ -74,8 +73,8 @@ class NewPost extends Component {
 			let nature = this.findNatureOf(pokemon.id)
 			let basePokemon = this.findBasePokemonOf(pokemon.id)
 			return <Pokemon pokemon={pokemon} ability={ability} nature={nature} basePokemon={basePokemon}/>
-		}else{
-			return <img height="245" role="presentation" />
+		} else {
+			return <img height="245" role="presentation" /> // MATT fix pls. no worries, i will
 		}
 	}
 
@@ -97,6 +96,8 @@ class NewPost extends Component {
 					<br /><br />
 					<label>Select a pokemon to offer: </label>
 					<select onChange={this.handlePokemonChange.bind(this)}>
+						<option key={666} value={null}>- select a pokemon -</option>
+
 						{this.listPokemons()}
 					</select>
 					<br />
