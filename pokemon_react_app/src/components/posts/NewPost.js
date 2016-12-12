@@ -74,6 +74,8 @@ class NewPost extends Component {
 			let nature = this.findNatureOf(pokemon.id)
 			let basePokemon = this.findBasePokemonOf(pokemon.id)
 			return <Pokemon pokemon={pokemon} ability={ability} nature={nature} basePokemon={basePokemon}/>
+		}else{
+			return <img height="245" role="presentation" />
 		}
 	}
 
