@@ -28,6 +28,7 @@ class Navbar2 extends Component {
 				<NavItem className="nav-item" eventKey={3}><Link className="nav-item-text" to={'/pokemon/new'} >Create Pokemon</Link></NavItem>
 				<NavItem className="nav-item" eventKey={4}><Link className="nav-item-text" to={`/users/${this.renderUserId()}`} >Profile</Link></NavItem>
 				<NavItem className="nav-item" eventKey={5}><Link className="nav-item-text" to={`/users/${this.renderUserId()}/pokemon`} >Inventory</Link></NavItem>
+				<NavItem className="nav-item" eventKey={6}><Link className="nav-item-text" to={`/users/${this.renderUserId()}/posts`} >Your Posts</Link></NavItem>
 				{/* NEW NAV ITEMS HAVE TO GO HERE  */}
 			</Nav>
 		}else{

@@ -20,6 +20,7 @@ class NewRequestedPokemon extends Component {
 	}
 
 	componentWillMount() {
+		this.props.getBasePokemon({natdexnum: 1})
 		if(this.loaded()) {
 			this.setState({natures: [this.props.natures[0].id]})
 			this.setState({abilities: [this.props.abilities[0].id]})
@@ -90,11 +91,15 @@ class NewRequestedPokemon extends Component {
 				<br />
 				<label>Select a Nature: </label>
 				<select onChange={this.handleNaturesChange.bind(this)}>
+					<option key={666} value={null}>- select a nature -</option>
+
 					{this.listNatures()}
 				</select>
 				<br />
 				<label>Select an Ability: </label>
 				<select onChange={this.handleAbilitiesChange.bind(this)}>
+					<option key={666} value={null}>- select an ability -</option>
+
 					{this.listAbilities()}
 				</select>
 			</div>

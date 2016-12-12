@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     post '/login', to: 'sessions#create'
     get '/users/:id/pokemons', to: 'pokemons#index'
     post '/users/:id/pokemons', to: 'pokemons#create'
+    get '/users/:id/posts', to: 'trade_posts#index'
     resources :users, only: [:create, :show, :update, :destroy]
     post '/trade_posts/:id/requested_pokemons', to: 'requested_pokemons#create'
     resources :trade_posts, only: [:create, :show, :update, :destroy]

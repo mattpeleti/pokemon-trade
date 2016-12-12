@@ -5,6 +5,7 @@ import Home from './components/Home'
 import Signup from './components/Signup'
 import Login from './components/Login'
 import NewPost from './components/posts/NewPost'
+import UserPosts from './components/posts/UserPosts'
 import NewPokemon from './components/pokemons/NewPokemon'
 import Inventory from './components/pokemons/Inventory'
 import ShowUser from './components/users/ShowUser'
@@ -24,6 +25,7 @@ export default (
 		<Route path="users/:id" component={ShowUser}>
 			<Route path="edit" component={EditUser} />
 			<Route path="pokemon" component={Inventory} />
+			<Route path="posts" component={UserPosts} />
 		</Route>
 	</Route>
 )
