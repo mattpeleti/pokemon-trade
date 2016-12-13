@@ -39,7 +39,7 @@ class UserPosts extends Component {
 		return( this.loaded() ? (
 			<div>
 				<h3>User's Posts</h3>
-
+				{this.props.children}
 			</div>
 		) : <h3>Loading...</h3>)
 	}

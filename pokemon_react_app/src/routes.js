@@ -10,6 +10,7 @@ import NewPokemon from './components/pokemons/NewPokemon'
 import Inventory from './components/pokemons/Inventory'
 import ShowUser from './components/users/ShowUser'
 import EditUser from './components/users/EditUser'
+import ShowPost from './components/posts/ShowPost'
 
 export default (
 	<Route path="/" component={App}>
@@ -18,6 +19,7 @@ export default (
 		<Route path="login" component={Login} />
 		<Route path="posts">
 			<Route path="new" component={NewPost} />
+			<Route path=":post_id" component={ShowPost}/>
 		</Route>
 		<Route path="pokemon">
 			<Route path="new" component={NewPokemon} />
@@ -25,7 +27,7 @@ export default (
 		<Route path="users/:id" component={ShowUser}>
 			<Route path="edit" component={EditUser} />
 			<Route path="pokemon" component={Inventory} />
-			<Route path="posts" component={UserPosts} />
+			<Route path="posts" component={UserPosts}/>
 		</Route>
 	</Route>
 )

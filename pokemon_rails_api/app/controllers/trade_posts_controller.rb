@@ -27,7 +27,7 @@ class TradePostsController < ApplicationController
     post = TradePost.new(
       title: post_params[:title],
       description: post_params[:description],
-      pokemon_id: post_params[:pokemon_id],
+      pokemon_id: post_params[:pokemon_id]
     )
     if post.save
       render json: {postId: post.id}

@@ -1,5 +1,5 @@
 import $ from 'jquery'
-
+import { browserHistory } from 'react-router'
 import createRequestedPokemon from '../pokemons/createRequestedPokemon'
 
 export default function createPost(formData, formData2) {
@@ -16,8 +16,10 @@ export default function createPost(formData, formData2) {
 			contentType: 'application/json; charset=utf-8',
 			datatype: 'json'
 		}).done((response) => {
+			debugger
+			browserHistory.push(`/posts/${response.postId}`)
 			dispatch(createRequestedPokemon(formData2, response.postId))
-			dispatch({type: 'CREATE_POST', payload: response.post})
+			dispatch({type: 'CREATE_POST'})
 		})
 	}
 }
