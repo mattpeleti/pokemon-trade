@@ -16,8 +16,10 @@ class TradePostsController < ApplicationController
 
   def show
     post = TradePost.find(params[:id])
+    post_pokemon = post.pokemon
+    requested_pokemon = RequestedPokemon.find_by(trade_post_id: post.id)
     if post
-      render json: {post: post}
+      render json: {post: post, postPokemon: post_pokemon, requestedPokemon: requested_pokemon}
     else
       render json: {error: 'Post not found.'}, status: 404
     end
