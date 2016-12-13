@@ -6,6 +6,7 @@ import getPokemons from '../../actions/pokemons/getPokemons'
 import Pokemon from '../pokemons/Pokemon'
 import NewRequestedPokemon from './NewRequestedPokemon'
 import auth from '../../lib/auth'
+import showPost from '../../actions/posts/showPost'
 
 class NewPost extends Component {
 	constructor(props){
@@ -40,6 +41,8 @@ class NewPost extends Component {
 	handleSubmit(event) {
 		event.preventDefault()
 		this.props.createPost(this.state, this.props.requestedPokemonValues)
+
+		// this.props.showPost(this.props.currentUser.id, this.props)
 	}
 
 	findAbilityOf(pokemonId){
@@ -113,11 +116,12 @@ class NewPost extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ createPost, getPokemons }, dispatch)
+	return bindActionCreators({ createPost, getPokemons, showPost }, dispatch)
 }
 
 function mapStateToProps(state) {
 	return {
+		currentUser: state.users.currentUser,
 		id: state.posts.new_post_id,
 		pokemons: state.pokemon.pokemons,
 		basePokemons: state.pokemon.basePokemons,

@@ -49,6 +49,13 @@ body {
   color: #fff;
 }
 
+.PokeForm {
+  width: 29%;
+  display: inline-block;
+  text-align: center;
+  background-color: lightgrey;
+}
+
 .newPokemon h3 {
   color: #FFF;
 }
