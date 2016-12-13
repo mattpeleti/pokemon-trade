@@ -49,11 +49,26 @@ body {
   color: #fff;
 }
 
+.PokeForm input {
+  margin: 5px;
+  /*width: 180px;*/
+}
+
+.PokeForm select {
+  margin: 5px;
+  /*width: 180px;*/
+}
+
 .PokeForm {
-  width: 29%;
+  width: 40%%;
   display: inline-block;
   text-align: center;
-  background-color: lightgrey;
+  border-style: solid;
+  border-color: #60a79c;
+  padding: 10px;
+  background-color: #5E7390;
+  border-radius: 15px;
+  opacity: ;
 }
 
 .newPokemon h3 {
@@ -62,6 +77,11 @@ body {
 
 .NewPostForm label {
   color: #fff;
+}
+.NewPostForm textarea {
+  height: 113px;
+  width: 558px;
+  resize: none;
 }
 
 
@@ -178,6 +198,16 @@ body {
   color: white;
 }
 
+.DeleteButton {
+  -webkit-transition-duration: 1.0s; /* Safari */
+    transition-duration: .5s;
+}
+
+.DeleteButton:hover {
+  background-color: red;
+  color: white;
+}
+
 .EditSub {
   -webkit-transition-duration: 1.0s; /* Safari */
     transition-duration: .5s;
@@ -188,24 +218,15 @@ body {
   color: white;
 }
 
-.DeleteButton {
+
+
+
+.SubmitStyle {
   -webkit-transition-duration: 1.0s; /* Safari */
     transition-duration: .5s;
 }
 
-.DeleteButton:hover {
-  background-color: red; /* Green */
-  color: white;
-}
-
-
-
-.LogSub {
-  -webkit-transition-duration: 1.0s; /* Safari */
-    transition-duration: 1.0s;
-}
-
-.LogSub:hover {
+.SubmitStyle:hover {
   background-color: lightgreen; /* Green */
   color: white;
 }

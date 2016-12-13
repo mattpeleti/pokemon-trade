@@ -89,26 +89,36 @@ class NewPost extends Component {
 
 	render() {
 		return ( this.loaded() ? (
-			<div>
+			<div className="NewPostContainer" >
 				<form className={'NewPostForm'} onSubmit={this.handleSubmit.bind(this)}>
-					<label>Post Title: </label>
-					<input type="text" placeholder="Title" onChange={this.handleTitleChange.bind(this)}/>
-					<br />
-					<label>Post Description: </label>
-					<input type="text" placeholder="Description" onChange={this.handleDescriptionChange.bind(this)}/>
+
+				<div className="twelve columns">
+				<label>Post Title: </label>
+				<input type="text" placeholder="Title" onChange={this.handleTitleChange.bind(this)}/>
+				<br />
+				</div>
+
+				<div className="six columns">
 					<br /><br />
 					<label>Select a pokemon to offer: </label>
 					<select onChange={this.handlePokemonChange.bind(this)}>
-						<option key={666} value={null}>- select a pokemon -</option>
+					<option key={666} value={null}>- select a pokemon -</option>
 
-						{this.listPokemons()}
+					{this.listPokemons()}
 					</select>
 					<br />
 					{this.renderPokemonCard()}
 					<br />
-					<NewRequestedPokemon />
-					<br />
-					<input type="submit"/>
+					<label>Post Description: </label>
+					<textarea placeholder="Description" onChange={this.handleDescriptionChange.bind(this)}/>
+				</div>
+
+				<div className="five columns">
+				<NewRequestedPokemon />
+				<br />
+				<input className="SubmitStyle" type="submit"/>
+				</div>
+
 				</form>
 			</div>
 		) : <h3>Loading...</h3>)
