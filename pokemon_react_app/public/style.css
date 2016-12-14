@@ -76,12 +76,16 @@ body {
 }
 
 .NewPostForm label {
-  color: #fff;
+  color: #FFF;
 }
 .NewPostForm textarea {
   height: 113px;
   width: 558px;
   resize: none;
+}
+
+.ShowPost {
+  color: #FFF;
 }
 
 

@@ -80,12 +80,6 @@ class NewPost extends Component {
 		}
 	}
 
-	// renderPokemonForm(){
-	// 	if(this.state.renderPostPokeform){
-	// 		return <NewPostPokemon />
-	// 	}
-	// }
-
 	render() {
 		return ( this.loaded() ? (
 			<div className="NewPostContainer" >
