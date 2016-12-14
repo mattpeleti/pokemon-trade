@@ -8,6 +8,7 @@ import createPokemon from '../../actions/pokemons/createPokemon'
 import setShowShiny from '../../actions/posts/setShowShiny'
 import auth from '../../lib/auth'
 import BasePokemon from './BasePokemon'
+import {FormGroup, FormControl} from 'react-bootstrap'
 
 
 class NewPokemon extends Component {
@@ -100,7 +101,7 @@ class NewPokemon extends Component {
 					<input type="text" placeholder="Nickname" onChange={this.handleNicknameChange.bind(this)} />
 					<br />
 					<label>Level: </label>
-					<input type="intger" placeholder="Level" onChange={this.handleLevelChange.bind(this)}/>
+					<input type="integer" placeholder="Level" onChange={this.handleLevelChange.bind(this)}/>
 					<br />
 					<label>Select a Nature: </label>
 					<select onChange={this.handleNatureChange.bind(this)}>
@@ -114,7 +115,7 @@ class NewPokemon extends Component {
 						{this.listAbilities()}
 					</select>
 					<br />
-					<input type="submit" />
+					<input className="SubmitStyle" type="submit" />
 				</form>
 			</div>
 		) : <h3>Loading...</h3>)

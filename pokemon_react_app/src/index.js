@@ -5,6 +5,7 @@ import configureStore from './stores/configureStore'
 import routes from './routes';
 import { Router, browserHistory } from 'react-router'
 import './index.css';
+// import '../public/skeleton.css'
 
 const store = configureStore()
 

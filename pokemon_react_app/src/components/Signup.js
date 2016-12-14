@@ -80,8 +80,8 @@ class Signup extends Component {
             <FormControl type="password" value={this.state.password} placeholder="Password" onChange={this.handlePasswordChange.bind(this)}/>
           </FormGroup>
 
-          <FormGroup className="SignSub" controlId="Submit">
-            <FormControl className="SignSub" type="submit"/>
+          <FormGroup className="SubmitStyle" controlId="Submit">
+            <FormControl className="SubmitStyle" type="submit"/>
           </FormGroup>
         </form>
 
