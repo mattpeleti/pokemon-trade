@@ -11,7 +11,6 @@ import getUserPosts from '../../actions/posts/getUserPosts'
 class UserPosts extends Component {
 
 	loaded() {
-		debugger
 		return !!this.props.userPosts
 	}
 

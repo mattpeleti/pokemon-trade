@@ -23,9 +23,11 @@ class ShowPost extends Component {
 			<div className="ShowPost">
 				<h3>{this.props.post.title}</h3>
 				<h4>posted by {this.props.user.username}</h4>
-				<p>{this.props.post.description}</p>
-				<div className="six columns">
+				<div className="five columns">
 					<Pokemon pokemon={this.props.postPokemon} ability={this.props.postPokemon.ability} nature={this.props.postPokemon.nature} basePokemon={this.props.postPokemon.base_pokemon} />
+				<div className="two columns" id="description">
+					<p>{this.props.post.description}</p>
+				</div>
 				</div>
 				<div className="five columns">
 					<RequestedPokemon reqPokemon={this.props.requestedPokemon} abilities={this.props.requestedPokemon.abilities} natures={this.props.requestedPokemon.natures} basePokemon={this.props.requestedPokemon.base_pokemon} />
