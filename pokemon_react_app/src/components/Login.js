@@ -39,7 +39,7 @@ class Login extends Component {
 						</FormGroup>
 
 						<FormGroup controlId="Submit">
-							<FormControl className="LogSub" type="submit"/>
+							<FormControl className="SubmitStyle" type="submit"/>
 						</FormGroup>
 					</form>
 				</ReactCSSTransitionGroup>

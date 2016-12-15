@@ -6,6 +6,8 @@ import getPokemons from '../../actions/pokemons/getPokemons'
 import Pokemon from '../pokemons/Pokemon'
 import NewRequestedPokemon from './NewRequestedPokemon'
 import auth from '../../lib/auth'
+import getPost from '../../actions/posts/getPost'
+import setShowShiny from '../../actions/posts/setShowShiny'
 
 class NewPost extends Component {
 	constructor(props){
@@ -14,6 +16,7 @@ class NewPost extends Component {
 	}
 
 	componentWillMount() {
+		this.props.setShowShiny(false)
 		if(!this.loaded()) {
 			this.props.getPokemons()
 		} else {
@@ -40,6 +43,7 @@ class NewPost extends Component {
 	handleSubmit(event) {
 		event.preventDefault()
 		this.props.createPost(this.state, this.props.requestedPokemonValues)
+
 	}
 
 	findAbilityOf(pokemonId){
@@ -78,34 +82,38 @@ class NewPost extends Component {
 		}
 	}
 
-	// renderPokemonForm(){
-	// 	if(this.state.renderPostPokeform){
-	// 		return <NewPostPokemon />
-	// 	}
-	// }
-
 	render() {
 		return ( this.loaded() ? (
-			<div>
+			<div className="NewPostContainer" >
 				<form className={'NewPostForm'} onSubmit={this.handleSubmit.bind(this)}>
-					<label>Post Title: </label>
-					<input type="text" placeholder="Title" onChange={this.handleTitleChange.bind(this)}/>
-					<br />
-					<label>Post Description: </label>
-					<input type="text" placeholder="Description" onChange={this.handleDescriptionChange.bind(this)}/>
+
+				<div className="twelve columns">
+				<label>Post Title: </label>
+				<input type="text" placeholder="Title" onChange={this.handleTitleChange.bind(this)}/>
+				<br />
+				</div>
+
+				<div className="six columns">
 					<br /><br />
 					<label>Select a pokemon to offer: </label>
 					<select onChange={this.handlePokemonChange.bind(this)}>
-						<option key={666} value={null}>- select a pokemon -</option>
+					<option key={666} value={null}>- select a pokemon -</option>
 
-						{this.listPokemons()}
+					{this.listPokemons()}
 					</select>
 					<br />
 					{this.renderPokemonCard()}
 					<br />
-					<NewRequestedPokemon />
-					<br />
-					<input type="submit"/>
+					<label>Post Description: </label>
+					<textarea placeholder="Description" onChange={this.handleDescriptionChange.bind(this)}/>
+				</div>
+
+				<div className="five columns">
+				<NewRequestedPokemon />
+				<br />
+				<input className="SubmitStyle" type="submit"/>
+				</div>
+
 				</form>
 			</div>
 		) : <h3>Loading...</h3>)
@@ -113,11 +121,12 @@ class NewPost extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ createPost, getPokemons }, dispatch)
+	return bindActionCreators({ createPost, getPokemons, getPost, setShowShiny }, dispatch)
 }
 
 function mapStateToProps(state) {
 	return {
+		currentUser: state.users.currentUser,
 		id: state.posts.new_post_id,
 		pokemons: state.pokemon.pokemons,
 		basePokemons: state.pokemon.basePokemons,

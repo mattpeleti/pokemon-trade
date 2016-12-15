@@ -22,4 +22,10 @@ class BasePokemon < ApplicationRecord
   has_many :abilities, through: :base_pokemon_abilities
   has_many :pokemon
   has_many :requested_pokemon
+
+  after_initialize :set_defaults, unless: :persisted?
+
+  def set_defaults
+    self.form ||= 'standard'
+  end
 end

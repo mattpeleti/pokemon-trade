@@ -42,7 +42,7 @@ class Navbar2 extends Component {
 	render() {
 		return (
 			<div className="navbar-styling">
-				<Navbar >
+				<Navbar className= "nav-bar">
 					<Navbar.Header>
 			      <Navbar.Brand className="navbar-brand-css">
 			        <Link to={'/'}>PokeTrade</Link>

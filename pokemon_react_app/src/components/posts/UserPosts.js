@@ -11,8 +11,26 @@ import getUserPosts from '../../actions/posts/getUserPosts'
 class UserPosts extends Component {
 
 	loaded() {
-		debugger
 		return !!this.props.userPosts
+	}
+
+	findAbilityOf(pokemonId){
+		return this.props.abilities.find((ability) => {
+			return ability.pokemon_id === pokemonId
+		})
+	}
+
+	findNatureOf(pokemonId){
+		return this.props.natures.find((nature) => {
+			return nature.pokemon_id === pokemonId
+		})
+	}
+
+
+	findBasePokemonOf(pokemonId){
+		return this.props.basePokemons.find((basePokemon) => {
+			return basePokemon.pokemon_id === pokemonId
+		})
 	}
 
 	componentWillMount() {
@@ -22,24 +40,22 @@ class UserPosts extends Component {
 		}
 	}
 
+	renderUserPosts() {
+		return this.props.userPosts.map((post) => {
+			let ability = this.findAbilityOf(post.id)
+			let nature = this.findNatureOf(post.id)
+			let basePokemon = this.findBasePokemonOf(post.id)
 
-
-	// renderUserPosts() {
-	// 	return this.props.userPosts.map((post) => {
-	// 		let ability = this.findAbilityOf(post.id)
-	// 		let nature = this.findNatureOf(post.id)
-	// 		let basePokemon = this.findBasePokemonOf(post.id)
-
-	// 		return <Post post={post} postPokemon={ability, nature, basePokemon}/>
-	// 	})
-	// }
+			return <Post post={post} postPokemon={ability, nature, basePokemon}/>
+		})
+	}
 
 	render() {
 
 		return( this.loaded() ? (
 			<div>
 				<h3>User's Posts</h3>
-
+				{this.props.children}
 			</div>
 		) : <h3>Loading...</h3>)
 	}
