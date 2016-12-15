@@ -45,6 +45,19 @@ body {
 /*THIS DOES WHAT JON WHATS BUT IT BREAKS THE EXIT ANIMATION*/
 
 
+#InvPoke {
+  width: 20%;
+  border-style: solid;
+  border-color: #60a79c;
+  padding: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  background-color: #5E7390;
+  border-radius: 15px;
+  opacity: 1;
+}
+
 .PokeCard p {
   color: #fff;
 }
@@ -78,6 +91,7 @@ body {
 .newPokemon h3 {
   color: #FFF;
 }
+
 
 .NewPostForm label {
   color: #FFF;

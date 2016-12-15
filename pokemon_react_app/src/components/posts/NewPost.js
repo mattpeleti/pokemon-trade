@@ -20,7 +20,7 @@ class NewPost extends Component {
 		if(!this.loaded()) {
 			this.props.getPokemons()
 		} else {
-			this.setState({pokemonId: this.props.pokemons[0].id})
+			console.log("does this work?")
 		}
 	}
 
@@ -71,14 +71,18 @@ class NewPost extends Component {
 	}
 
 	renderPokemonCard() {
-		let pokemon = this.props.pokemons.find((pokemon) => pokemon.id == this.state.pokemonId)
-		if(pokemon) {
-			let ability = this.findAbilityOf(pokemon.id)
-			let nature = this.findNatureOf(pokemon.id)
-			let basePokemon = this.findBasePokemonOf(pokemon.id)
-			return <Pokemon pokemon={pokemon} ability={ability} nature={nature} basePokemon={basePokemon}/>
-		} else {
-			return <img height="245" role="presentation" /> // MATT fix pls. no worries, i will
+		if(this.state.pokemonId === null){
+			return <img height="245" role="presentation" />
+		}else{
+			let pokemon = this.props.pokemons.find((pokemon) => pokemon.id == this.state.pokemonId)
+			if(pokemon) {
+				let ability = this.findAbilityOf(pokemon.id)
+				let nature = this.findNatureOf(pokemon.id)
+				let basePokemon = this.findBasePokemonOf(pokemon.id)
+				return <Pokemon pokemon={pokemon} ability={ability} nature={nature} basePokemon={basePokemon}/>
+			} else {
+				return <img height="245" role="presentation" /> // MATT fix pls. no worries, i will
+			}
 		}
 	}
 

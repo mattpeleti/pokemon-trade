@@ -7,9 +7,9 @@ class Pokemon extends Component {
 
 	renderSprite(){
 		if(this.props.pokemon.shiny && this.props.pokemon.id) {
-			return <img height="120" src={this.props.basePokemon.shiny_sprite} alt={`${this.props.basePokemon.species} shiny_sprite`} />
+			return <img id="PokeSprite" height="120" src={this.props.basePokemon.shiny_sprite} alt={`${this.props.basePokemon.species} shiny_sprite`} />
 		} else if (!this.props.pokemon.shiny && this.props.pokemon.id){
-			return <img height="120" src={this.props.basePokemon.sprite} alt={`${this.props.basePokemon.species} sprite`} />
+			return <img id="PokeSprite" height="120" src={this.props.basePokemon.sprite} alt={`${this.props.basePokemon.species} sprite`} />
 		} else {
 			return <img height="120" role="presentation" />
 		}
@@ -36,7 +36,7 @@ class Pokemon extends Component {
 
 	render() {
 		return(
-			<div className="Poke">
+			<div id="Poke">
 				<ReactCSSTransitionGroup transitionName="Pokemon-Card" transitionEnter={true} transitionLeave={true} transitionAppear={true} transitionAppearTimeout={300} transitionEnterTimeout={300} transitionLeaveTimeout={300}>
 					<div key={this.props.pokemon.id} className="PokeCard">
 						{this.renderSprite()}
