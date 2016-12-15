@@ -14,8 +14,14 @@ class ShowPost extends Component {
 		}
 	}
 
+	componentWillUpdate(){
+		if(!this.loaded()) {
+			this.props.getPost(this.props.params.post_id)
+		}
+	}
+
 	loaded() {
-		return (this.props.post && this.props.post.id) == this.props.params.post_id
+		return this.props.post && (this.props.post.id == this.props.params.post_id)
 	}
 
 	render() {
