@@ -26,4 +26,10 @@ class Pokemon < ApplicationRecord
   has_many :trade_offers
 	has_many :pokemon_moves
   has_many :moves, through: :pokemon_moves
+
+  after_initialize :set_defaults, unless: :persisted?
+
+  def set_defaults
+    self.form ||= 'standard'
+  end
 end
