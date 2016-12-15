@@ -19,7 +19,6 @@ class RequestedPokemonsController < ApplicationController
       nature_ids: req_pokemon_params[:nature_ids],
       ability_ids: req_pokemon_params[:ability_ids]
     )
-    # requested_pokemon.nature_ids
     if requested_pokemon.save
       render json: {message: "Requested Pokemon saved. Yay!"}
     else

@@ -26,6 +26,7 @@ body {
 }
 
 
+
 .App h2 {
   color: #fff;
 }
@@ -76,12 +77,21 @@ body {
 }
 
 .NewPostForm label {
-  color: #fff;
+  color: #FFF;
 }
 .NewPostForm textarea {
   height: 113px;
   width: 558px;
   resize: none;
+}
+
+.ShowPost {
+  color: #FFF;
+}
+
+#description {
+  height: 300px;
+  width: 200px;
 }
 
 
