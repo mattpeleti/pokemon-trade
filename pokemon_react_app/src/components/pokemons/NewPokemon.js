@@ -45,7 +45,7 @@ class NewPokemon extends Component {
 					this.props.getBasePokemon({natdexnum: natdexnum})
 				}
 				this.setState({natdexnum: natdexnum})
-			}, 200) //THIS INTEGER ACCOUNTS FOR SHITTY TYPING
+			}, 350) //THIS INTEGER ACCOUNTS FOR SHITTY TYPING
 		}
 
 	handleNicknameChange(event) {
@@ -94,7 +94,7 @@ class NewPokemon extends Component {
 				<form className="PokeForm" onSubmit={this.handleSubmit.bind(this)}>
 					<h3>Create a Pokemon</h3>
 					<BasePokemon />
-					<label>Pokedex Number(1-12): </label>
+					<label>Pokedex Number(1-802): </label>
 					<input type="integer" placeholder="#" onChange={this.handleNatDexNumChange.bind(this)}/> <input type="checkbox" value="shiny" onChange={this.handleShinyChange.bind(this)}/> Shiny?
 					<br />
 					<label>Nickname: </label>
