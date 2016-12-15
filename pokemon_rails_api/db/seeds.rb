@@ -195,6 +195,7 @@ BasePokemon.all.each do |pokemon|
   (3 - formattedNDN.length).times {formattedNDN.prepend("0") }
                                   #pokemon.abilites to assign the new abilities
                                   #find or create by
+
   if pokemon.natdexnum == 29
      uri = URI.join( URL, "nidoran-f")
   elsif pokemon.natdexnum == 32

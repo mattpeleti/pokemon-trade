@@ -7,6 +7,7 @@ import Pokemon from '../pokemons/Pokemon'
 import NewRequestedPokemon from './NewRequestedPokemon'
 import auth from '../../lib/auth'
 import getPost from '../../actions/posts/getPost'
+import setShowShiny from '../../actions/posts/setShowShiny'
 
 class NewPost extends Component {
 	constructor(props){
@@ -15,6 +16,7 @@ class NewPost extends Component {
 	}
 
 	componentWillMount() {
+		this.props.setShowShiny(false)
 		if(!this.loaded()) {
 			this.props.getPokemons()
 		} else {
@@ -119,7 +121,7 @@ class NewPost extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ createPost, getPokemons, getPost }, dispatch)
+	return bindActionCreators({ createPost, getPokemons, getPost, setShowShiny }, dispatch)
 }
 
 function mapStateToProps(state) {

@@ -37,7 +37,7 @@ class Pokemon extends Component {
 	render() {
 		return(
 			<div className="Poke">
-				<ReactCSSTransitionGroup transitionName="Pokemon-Card" transitionEnter={true} transitionLeave={true} transitionAppear={false} transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+				<ReactCSSTransitionGroup transitionName="Pokemon-Card" transitionEnter={true} transitionLeave={true} transitionAppear={true} transitionAppearTimeout={300} transitionEnterTimeout={300} transitionLeaveTimeout={300}>
 					<div key={this.props.pokemon.id} className="PokeCard">
 						{this.renderSprite()}
 						<p>{this.renderNickname()}, lvl {this.props.pokemon.level}</p>

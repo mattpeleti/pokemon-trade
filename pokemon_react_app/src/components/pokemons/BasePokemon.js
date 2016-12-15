@@ -40,6 +40,7 @@ class BasePokemon extends Component {
 
 	render() {
 		return(
+			<div id="CardContainer" className="offset-by-six">
 				<div className="BasePoke">
 					<ReactCSSTransitionGroup transitionName="Base-Pokemon-Card" transitionEnter={true} transitionLeave={true} transitionAppear={false} transitionEnterTimeout={300} transitionLeaveTimeout={300}>
 						<div key={this.props.id} className="BasePokeCard">
@@ -48,9 +49,9 @@ class BasePokemon extends Component {
 							{this.renderPokemonName()}
 							{this.renderTypes()}<br />
 						</div>
-
 					</ReactCSSTransitionGroup>
 				</div>
+			</div>
 		)
 	}
 }
