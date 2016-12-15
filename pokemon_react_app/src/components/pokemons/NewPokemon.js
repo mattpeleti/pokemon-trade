@@ -14,7 +14,7 @@ import {FormGroup, FormControl} from 'react-bootstrap'
 class NewPokemon extends Component {
 	constructor(props) {
 		super(props)
-		this.state = {natdexnum: 1, nickname: "", level: null, nature: null, ability: null, shiny: false}
+		this.state = {natdexnum: 1, nickname: "", level: null, nature: null, ability: null, shiny: false, updateTimer: null}
 	}
 
 	loaded(){
@@ -37,16 +37,25 @@ class NewPokemon extends Component {
 	// 	}
 	// }
 
+	updateBase(change) {
+		if (change.natdexnum){
+			this.props.getBasePokemon({natdexnum: change.natdexnum})
+		}
+		this.setState(change)
+	}
+
 	handleNatDexNumChange(event) {
 		event.persist()	//event.persist is required because react gets upset by waiting with setTimeout
-			setTimeout(() => {
-				let natdexnum = event.target.value
-				if (natdexnum){
-					this.props.getBasePokemon({natdexnum: natdexnum})
-				}
-				this.setState({natdexnum: natdexnum})
-			}, 350) //THIS INTEGER ACCOUNTS FOR SHITTY TYPING
-		}
+		clearTimeout(this.state.updateTimer)
+		let updateTimer = setTimeout(() => {
+			let natdexnum = event.target.value
+			if (natdexnum){
+				this.props.getBasePokemon({natdexnum: natdexnum})
+			}
+			this.setState({natdexnum: natdexnum})
+		}, 350) //THIS INTEGER ACCOUNTS FOR SHITTY TYPING
+		this.setState({updateTimer: updateTimer})
+	}
 
 	handleNicknameChange(event) {
 		this.setState({nickname: event.target.value})

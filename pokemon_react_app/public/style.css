@@ -1,14 +1,25 @@
-
-.nav-item {
+.navbar-styling {
+  background: #607d8b !important;
   opacity: 1;
 }
 
+.navbar-brand-css {
+  color: white;
+}
+
+.nav-item {
+  opacity: 1;
+  height: 30px;
+
+}
+
 .nav-item:hover {
-  background-color: #B6C3D2;
-  color: #FFF;
+  background-color: #60a79c !important;
+  color: #60a79c !important;
 }
 
 .nav-item-text {
+  color: white;
   opacity: 1;
 }
 
@@ -48,12 +59,12 @@ body {
 #InvPoke {
   width: 20%;
   border-style: solid;
-  border-color: #60a79c;
+  border-color: #89ecda;
   padding: 10px;
   margin-left: 30px;
   margin-right: 30px;
   margin-bottom: 30px;
-  background-color: #5E7390;
+  background-color: #607d8b;
   border-radius: 15px;
   opacity: 1;
 }
@@ -81,9 +92,9 @@ body {
   display: inline-block;
   text-align: center;
   border-style: solid;
-  border-color: #60a79c;
+  border-color: #89ecda;
   padding: 10px;
-  background-color: #5E7390;
+  background-color: #607d8b;
   border-radius: 15px;
   opacity: ;
 }

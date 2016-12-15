@@ -1,4 +1,3 @@
-
 const defaultState = {'creatingUser': false, 'currentUser': null}
 
 export default function users(state = defaultState, action) {
