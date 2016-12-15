@@ -91,9 +91,9 @@ class NewPokemon extends Component {
 
 		return( this.loaded() ? (
 			<div className="newPokemon">
-				<h3>Create a Pokemon</h3>
-				<BasePokemon />
 				<form className="PokeForm" onSubmit={this.handleSubmit.bind(this)}>
+					<h3>Create a Pokemon</h3>
+					<BasePokemon />
 					<label>Pokedex Number(1-12): </label>
 					<input type="integer" placeholder="#" onChange={this.handleNatDexNumChange.bind(this)}/> <input type="checkbox" value="shiny" onChange={this.handleShinyChange.bind(this)}/> Shiny?
 					<br />

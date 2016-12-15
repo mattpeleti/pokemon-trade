@@ -42,6 +42,9 @@ body {
   color: #fff;
 }
 
+/*THIS DOES WHAT JON WHATS BUT IT BREAKS THE EXIT ANIMATION*/
+
+
 .PokeCard p {
   color: #fff;
 }
@@ -61,7 +64,7 @@ body {
 }
 
 .PokeForm {
-  width: 40%%;
+  width: 35%;
   display: inline-block;
   text-align: center;
   border-style: solid;
@@ -106,7 +109,7 @@ body {
   transition: opacity 300ms ease-in;
 }
 
-.Base-Pokemon-Card-enter {
+/*.Base-Pokemon-Card-enter {
   position: absolute;
   left: 0;
   width: 100%;
@@ -121,18 +124,41 @@ body {
   height: 100%;
   transform: translate3d(0, 0, 0);
   transition: all ease-out 300ms;
+}*/
+
+.Base-Pokemon-Card-enter {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 300ms, all ease-out 200ms;
 }
 
+.Base-Pokemon-Card-enter-active {
+  display: inline-block;
+  position: absolute;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  left: 500px;
+  transition: opacity 300ms, all ease-out 300ms;
+  transform: translateX(-500px);
+}
+
+
 .Base-Pokemon-Card-leave {
-  transform: translate3d(0, 0, 0);
+  display: inline-block;
+  opacity: 0;
+  transition: opacity 300ms, ease-out 600ms;
 }
 
 .Base-Pokemon-Card-leave-active {
-  transform: translate3d(-100%, 0, 0);
-  transition: all ease-out 300ms;
+  transition: opacity 300ms, all ease-out 600ms;
+  transform: translateX(-500px);
 }
 
-.Pokemon-Card-enter {
+/*.Pokemon-Card-enter {
   position: absolute;
   left: 0;
   width: 100%;
@@ -147,6 +173,36 @@ body {
   height: 100%;
   transform: translate3d(0, 0, 0);
   transition: all ease-out 300ms;
+}*/
+
+.Pokemon-Card-appear {
+  opacity: 0;
+}
+
+.Pokemon-Card-appear-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.Pokemon-Card-enter {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 300ms, all ease-out 200ms;
+}
+
+.Pokemon-Card-enter-active {
+  display: inline-block;
+  position: absolute;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  left: 200px;
+  transition: opacity 300ms, all ease-out 300ms;
+  transform: translateX(-500px);
+
 }
 
 .Pokemon-Card-leave {
